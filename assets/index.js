@@ -1,34 +1,35 @@
-// Add a sticky header
-const header = document.querySelector('header');
+// fungsi scroll ke atas
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > header.offsetTop) {
-        header.classList.add('sticky');
+// tampilkan / sembunyikan tombol saat scroll
+window.addEventListener("scroll", function () {
+    const scrollBtn = document.getElementById("scrollToTopButton");
+    if (window.scrollY > 20) { // muncul kalau scroll lebih dari 200px
+        scrollBtn.style.display = "block";
     } else {
-        header.classList.remove('sticky');
+        scrollBtn.style.display = "none";
     }
 });
 
-const menuToggle = document.querySelector('.menu-toggle input');
-const nav = document.querySelector('nav ul');
+// inisialisasi AOS
+AOS.init({ duration: 1000, once: false });
 
-menuToggle.addEventListener('click', () => {
-    nav.classList.toggle('slide');
+document.querySelectorAll('a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        if (this.getAttribute('href').startsWith('#')) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            const navbarHeight = document.querySelector('.navbar').offsetHeight; // tinggi navbar fixed
+            const offsetTop = target.offsetTop - navbarHeight;
+
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
 });
 
-const productContainers = [...document.querySelectorAll('.product-container')];
-const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
-const preBtn = [...document.querySelectorAll('.pre-btn')];
 
-productContainers.forEach((item, i) => {
-    let containerDimensions = item.getBoundingClientRect();
-    let containerWidth = containerDimensions.width;
-
-    nxtBtn[i].addEventListener('click', () => {
-        item.scrollLeft += containerWidth;
-    })
-
-    preBtn[i].addEventListener('click', () => {
-        item.scrollLeft -= containerWidth;
-    })
-})

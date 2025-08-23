@@ -266,7 +266,6 @@ nav {
 .contact-icon:hover {
   background: #3b82f6;
   color: #fff;
-  transform: translateY(-5px);
 }
 
 #scrollToTopButton {

@@ -281,3 +281,21 @@ nav {
   box-sizing: border-box;
   overflow: hidden;
 }
+
+/* sembunyikan konten asli kalau JS mati */
+noscript {
+  display: flex;
+  background: #f8d7da;
+  color: #721c24;
+  font-family: Poppins, sans-serif;
+  text-align: center;
+  padding: 50px;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+noscript h2 {
+  margin-bottom: 10px;
+}

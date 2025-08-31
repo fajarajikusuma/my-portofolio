@@ -47,4 +47,24 @@ document.addEventListener('cut', event => event.preventDefault());
 document.addEventListener('paste', event => event.preventDefault());
 document.addEventListener('selectstart', event => event.preventDefault());
 
+// efek ketik untuk nama
+new Typed("#typed-name", {
+    strings: ["Fajar Aji Kusuma"], // isi nama
+    typeSpeed: 100,
+    backSpeed: 50,
+    showCursor: false,
+    loop: false,
+});
 
+// efek ketik untuk keahlian
+new Typed("#typed-skills", {
+    strings: [
+        "Full Stack Web Developer",
+        "Network Engineer",
+        "Cloud Engineer",
+    ],
+    typeSpeed: 80,
+    backSpeed: 40,
+    backDelay: 2000,
+    loop: true,
+});

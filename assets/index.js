@@ -33,11 +33,11 @@ document.querySelectorAll('a').forEach(anchor => {
 });
 
 // cegah agar tidak bisa download gambar, copy, drag and drop, inspect element, view source code, dan mematikan javascript web tidak bisa
-document.addEventListener('contextmenu', event => event.preventDefault());
 document.addEventListener('keydown', event => {
+    const key = event.key.toLowerCase(); // ubah ke huruf kecil
     if (event.key === 'F12' ||
-        (event.ctrlKey && event.shiftKey && ['I', 'J', 'C'].includes(event.key)) ||
-        (event.ctrlKey && event.key === 'U')) {
+        (event.ctrlKey && event.shiftKey && ['i', 'j', 'c'].includes(key)) ||
+        (event.ctrlKey && key === 'u')) {
         event.preventDefault();
     }
 });
@@ -68,3 +68,4 @@ new Typed("#typed-skills", {
     backDelay: 2000,
     loop: true,
 });
+

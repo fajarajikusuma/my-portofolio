@@ -61,6 +61,7 @@ new Typed("#typed-name", {
 // efek ketik untuk keahlian
 new Typed("#typed-skills", {
     strings: [
+        "IT Support",
         "Full Stack Web Developer",
         "Network Engineer",
         "Cloud Engineer",

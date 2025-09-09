@@ -211,7 +211,7 @@ nav {
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
 }
 
@@ -274,7 +274,7 @@ nav {
   bottom: 20px;
   right: 20px;
   display: none; /* awalnya disembunyikan */
-  z-index: 9999; /* biar selalu di atas */
+  z-index: 9; /* biar selalu di atas */
 }
 
 [data-aos] {
@@ -299,4 +299,54 @@ noscript {
 
 noscript h2 {
   margin-bottom: 10px;
+}
+
+/* Efek glamor */
+.certificate-card {
+  position: relative;
+  background: #111428;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 9px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  height: 250px; /* ✅ bikin semua card sama tinggi */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.certificate-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 180deg, #ffd700, #ff69b4, #00c3ff, #ffd700);
+  animation: rotate 6s linear infinite;
+  z-index: -1;
+  opacity: 0.2;
+}
+
+.certificate-card img {
+  max-height: 100%; /* ✅ gambar akan menyesuaikan tinggi card */
+  max-width: 100%; /* ✅ tidak keluar dari card */
+  border-radius: 20px;
+  padding: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.certificate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(75, 140, 245, 0.9), 0 0 60px rgba(75, 140, 245, 0.5);
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
 }

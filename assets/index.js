@@ -46,6 +46,8 @@ document.addEventListener('copy', event => event.preventDefault());
 document.addEventListener('cut', event => event.preventDefault());
 document.addEventListener('paste', event => event.preventDefault());
 document.addEventListener('selectstart', event => event.preventDefault());
+// cegah klik kanan
+document.addEventListener('contextmenu', event => event.preventDefault());
 
 // efek ketik untuk nama
 new Typed("#typed-name", {

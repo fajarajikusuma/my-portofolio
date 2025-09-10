@@ -321,12 +321,12 @@ noscript h2 {
 .certificate-card::before {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
+  /* top: -50%;
+  left: -50%; */
+  width: 500%;
+  height: 500%;
   background: conic-gradient(from 180deg, #ffd700, #ff69b4, #00c3ff, #ffd700);
-  animation: rotate 6s linear infinite;
+  animation: rotate 3s linear infinite;
   z-index: -1;
   opacity: 0.2;
 }

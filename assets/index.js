@@ -94,6 +94,6 @@ document.addEventListener("DOMContentLoaded", function () {
         slider.style.animation = "none";
         void slider.offsetWidth; // trigger reflow
         slider.style.animation = "";
-        slider.style.animation = "scroll 10s linear infinite";
+        slider.style.animation = "scroll 30s linear infinite";
     }, 30000);
 });

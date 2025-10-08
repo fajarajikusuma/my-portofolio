@@ -33,21 +33,21 @@ document.querySelectorAll('a').forEach(anchor => {
 });
 
 // cegah agar tidak bisa download gambar, copy, drag and drop, inspect element, view source code, dan mematikan javascript web tidak bisa
-document.addEventListener('keydown', event => {
-    const key = event.key.toLowerCase(); // ubah ke huruf kecil
-    if (event.key === 'F12' ||
-        (event.ctrlKey && event.shiftKey && ['i', 'j', 'c'].includes(key)) ||
-        (event.ctrlKey && key === 'u')) {
-        event.preventDefault();
-    }
-});
-document.addEventListener('dragstart', event => event.preventDefault());
-document.addEventListener('copy', event => event.preventDefault());
-document.addEventListener('cut', event => event.preventDefault());
-document.addEventListener('paste', event => event.preventDefault());
-document.addEventListener('selectstart', event => event.preventDefault());
-// cegah klik kanan
-document.addEventListener('contextmenu', event => event.preventDefault());
+// document.addEventListener('keydown', event => {
+//     const key = event.key.toLowerCase(); // ubah ke huruf kecil
+//     if (event.key === 'F12' ||
+//         (event.ctrlKey && event.shiftKey && ['i', 'j', 'c'].includes(key)) ||
+//         (event.ctrlKey && key === 'u')) {
+//         event.preventDefault();
+//     }
+// });
+// document.addEventListener('dragstart', event => event.preventDefault());
+// document.addEventListener('copy', event => event.preventDefault());
+// document.addEventListener('cut', event => event.preventDefault());
+// document.addEventListener('paste', event => event.preventDefault());
+// document.addEventListener('selectstart', event => event.preventDefault());
+// // cegah klik kanan
+// document.addEventListener('contextmenu', event => event.preventDefault());
 
 // efek ketik untuk nama
 new Typed("#typed-name", {
@@ -72,3 +72,28 @@ new Typed("#typed-skills", {
     loop: true,
 });
 
+// memastikan animasi berlanjut otomatis setelah hover dilepas
+const slider = document.querySelector('.certificates-slider');
+const container = document.querySelector('.certificates-container');
+
+container.addEventListener('mouseenter', () => {
+    slider.style.animationPlayState = 'paused';
+});
+container.addEventListener('mouseleave', () => {
+    slider.style.animationPlayState = 'running';
+});
+
+// ==== JS untuk menggandakan elemen agar animasi tidak jedut ====
+document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.getElementById("certificatesSlider");
+    const clone = slider.innerHTML;
+    slider.innerHTML += clone; // Gandakan isi untuk looping mulus
+
+    // Tambahan: reset animasi setiap 30s agar tetap sinkron
+    setInterval(() => {
+        slider.style.animation = "none";
+        void slider.offsetWidth; // trigger reflow
+        slider.style.animation = "";
+        slider.style.animation = "scroll 10s linear infinite";
+    }, 30000);
+});

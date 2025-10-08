@@ -350,3 +350,31 @@ noscript h2 {
     transform: rotate(360deg);
   }
 }
+
+.certificates-container {
+  /* overflow: hidden; */
+  width: 100%;
+  margin-top: 20px;
+}
+
+.certificates-slider {
+  display: flex;
+  gap: 30px;
+  animation: scroll 30s linear infinite;
+  width: max-content;
+}
+
+/* Animasi halus tanpa patah */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause animasi saat hover */
+.certificates-container:hover .certificates-slider {
+  animation-play-state: paused;
+}

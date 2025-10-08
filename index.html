@@ -270,58 +270,76 @@
             <!-- Halaman Sertifikat -->
             <div class="container my-5" data-aos="fade-up">
               <h2 class="text-center fw-bold">Certificates</h2>
-              <!-- Subtitle -->
               <p class="text-center txt-primary mb-3">
                 Here are some of my professional certificates.
               </p>
-              <div class="row g-4 justify-content-center">
-                <!-- Sertifikat 1 -->
-                <div
-                  class="col-md-4"
-                  data-aos="fade-right"
-                  data-aos-delay="100"
-                >
+
+              <div class="certificates-container">
+                <div class="certificates-slider" id="certificatesSlider">
+                  <!-- Sertifikat 1 -->
                   <div
                     class="certificate-card card border-5 shadow-lg rounded-4 text-center"
                   >
                     <img
                       src="assets/img/sertifikat-dicoding.jpg"
                       class="card-img-top rounded-top-4"
-                      alt="Sertifikat 1"
+                      alt="Sertifikat Dicoding"
                       data-bs-toggle="modal"
                       data-bs-target="#certificateModal1"
                       style="cursor: pointer"
                     />
                   </div>
-                </div>
 
-                <!-- Sertifikat 2 -->
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                  <!-- Sertifikat 2 -->
                   <div
                     class="certificate-card card border-5 shadow-lg rounded-4 text-center"
                   >
                     <img
                       src="assets/img/sertifikat-asisten.jpg"
                       class="card-img-top rounded-top-4"
-                      alt="Sertifikat 2"
+                      alt="Sertifikat Asisten"
                       data-bs-toggle="modal"
                       data-bs-target="#certificateModal2"
                       style="cursor: pointer"
                     />
                   </div>
-                </div>
 
-                <!-- Sertifikat 3 -->
-                <div class="col-md-4" data-aos="fade-left" data-aos-delay="300">
+                  <!-- Sertifikat 3 -->
                   <div
                     class="certificate-card card border-5 shadow-lg rounded-4 text-center"
                   >
                     <img
                       src="assets/img/sertifikat-koor.jpg"
                       class="card-img-top rounded-top-4"
-                      alt="Sertifikat 3"
+                      alt="Sertifikat Koordinator"
                       data-bs-toggle="modal"
                       data-bs-target="#certificateModal3"
+                      style="cursor: pointer"
+                    />
+                  </div>
+                  <!-- Sertifikat 4 -->
+                  <div
+                    class="certificate-card card border-5 shadow-lg rounded-4 text-center"
+                  >
+                    <img
+                      src="assets/img/CCNAV7_Introduction-1.jpg"
+                      class="card-img-top rounded-top-4"
+                      alt="Sertifikat Koordinator"
+                      data-bs-toggle="modal"
+                      data-bs-target="#certificateModal4"
+                      style="cursor: pointer"
+                    />
+                  </div>
+                  <!-- Sertifikat 5 -->
+                  <div
+                    class="certificate-card card border-5 shadow-lg rounded-4 text-center"
+                  >
+                    <img
+                      src="assets/img/CCNAV7_Switching-1.jpg"
+                      class="card-img-top rounded-top-4"
+                      alt="Sertifikat Koordinator"
+                      data-bs-toggle="modal"
+                      data-bs-target="#certificateModal5"
                       style="cursor: pointer"
                     />
                   </div>
@@ -640,6 +658,65 @@
           <div class="modal-body p-0">
             <iframe
               src="assets/pdfjs/web/viewer.html?file=/assets/document/sertifikat_koor.pdf"
+              style="width: 100%; height: 80vh; border: none"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Sertifikat 4 -->
+    <div
+      class="modal fade"
+      id="certificateModal4"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content rounded-4 shadow-lg">
+          <div class="modal-header border-0 bg-dark">
+            <h5 class="modal-title">
+              Certificate Viewer - Cisco V7 Inroduction to Network
+            </h5>
+            <button
+              type="button"
+              class="btn-close bg-light"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body p-0">
+            <iframe
+              src="assets/pdfjs/web/viewer.html?file=/assets/document/CCNAV7_Introduction.pdf"
+              style="width: 100%; height: 80vh; border: none"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Sertifikat 5 -->
+    <div
+      class="modal fade"
+      id="certificateModal5"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content rounded-4 shadow-lg">
+          <div class="modal-header border-0 bg-dark">
+            <h5 class="modal-title">
+              Certificate Viewer - Cisco V7 Switching, Routing, and Wireless
+              Essentials
+            </h5>
+            <button
+              type="button"
+              class="btn-close bg-light"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body p-0">
+            <iframe
+              src="assets/pdfjs/web/viewer.html?file=/assets/document/CCNAV7_Switching.pdf"
               style="width: 100%; height: 80vh; border: none"
             ></iframe>
           </div>

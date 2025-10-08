@@ -33,21 +33,21 @@ document.querySelectorAll('a').forEach(anchor => {
 });
 
 // cegah agar tidak bisa download gambar, copy, drag and drop, inspect element, view source code, dan mematikan javascript web tidak bisa
-// document.addEventListener('keydown', event => {
-//     const key = event.key.toLowerCase(); // ubah ke huruf kecil
-//     if (event.key === 'F12' ||
-//         (event.ctrlKey && event.shiftKey && ['i', 'j', 'c'].includes(key)) ||
-//         (event.ctrlKey && key === 'u')) {
-//         event.preventDefault();
-//     }
-// });
-// document.addEventListener('dragstart', event => event.preventDefault());
-// document.addEventListener('copy', event => event.preventDefault());
-// document.addEventListener('cut', event => event.preventDefault());
-// document.addEventListener('paste', event => event.preventDefault());
-// document.addEventListener('selectstart', event => event.preventDefault());
-// // cegah klik kanan
-// document.addEventListener('contextmenu', event => event.preventDefault());
+document.addEventListener('keydown', event => {
+    const key = event.key.toLowerCase(); // ubah ke huruf kecil
+    if (event.key === 'F12' ||
+        (event.ctrlKey && event.shiftKey && ['i', 'j', 'c'].includes(key)) ||
+        (event.ctrlKey && key === 'u')) {
+        event.preventDefault();
+    }
+});
+document.addEventListener('dragstart', event => event.preventDefault());
+document.addEventListener('copy', event => event.preventDefault());
+document.addEventListener('cut', event => event.preventDefault());
+document.addEventListener('paste', event => event.preventDefault());
+document.addEventListener('selectstart', event => event.preventDefault());
+// cegah klik kanan
+document.addEventListener('contextmenu', event => event.preventDefault());
 
 // efek ketik untuk nama
 new Typed("#typed-name", {

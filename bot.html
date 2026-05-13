@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Dashboard DLH Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+      :root {
+        --bg-color: var(--tg-theme-bg-color, #f8fafc);
+        --text-color: var(--tg-theme-text-color, #1e293b);
+        --hint-color: var(--tg-theme-hint-color, #64748b);
+        --card-bg: var(--tg-theme-secondary-bg-color, #ffffff);
+        --accent-color: #3b82f6;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: all 0.3s ease;
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* Support Dark Mode Telegram */
+      .dark .glass-card {
+        background: rgba(30, 41, 59, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .bot-card:active {
+        transform: scale(0.97);
+        transition: transform 0.1s ease;
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    </style>
+  </head>
+  <body class="p-4 min-h-screen font-sans">
+    <!-- Header Section -->
+    <header class="mb-8 text-center pt-4">
+      <div class="relative inline-block">
+        <div
+          class="absolute inset-0 bg-blue-500 blur-2xl opacity-20 rounded-full"
+        ></div>
+        <div
+          class="relative w-20 h-20 mx-auto bg-gradient-to-tr from-blue-600 to-blue-400 rounded-2xl flex items-center justify-center shadow-xl rotate-3 mb-4"
+        >
+          <span class="text-3xl text-white font-black -rotate-3">DLH</span>
+        </div>
+      </div>
+      <h1 class="text-2xl font-black gradient-text">Pusat Kendali Bot</h1>
+      <p class="text-sm opacity-60 font-medium tracking-tight">
+        IT Infrastructure & Network Control
+      </p>
+    </header>
+
+    <!-- Grid Layout -->
+    <div class="grid grid-cols-1 gap-4">
+      <!-- Bot 5: WoL Server -->
+      <a
+        href="https://t.me/WolMikrotikLHBot"
+        class="bot-card glass-card p-4 rounded-3xl flex items-center shadow-sm group"
+      >
+        <div
+          class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center text-3xl mr-4 group-hover:scale-110 transition-transform"
+        >
+          🐸
+        </div>
+        <div class="flex-grow">
+          <h3 class="font-bold text-lg">WoL Server</h3>
+          <p class="text-xs opacity-50 font-mono">@WolMikrotikLHBot</p>
+        </div>
+        <div
+          class="w-10 h-10 rounded-full flex items-center justify-center bg-blue-500/5 group-hover:bg-blue-500 transition-colors"
+        >
+          <svg
+            class="w-5 h-5 text-blue-500 group-hover:text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Bot 1: Fix Jaringan -->
+      <a
+        href="https://t.me/fix_jaringan_bot"
+        class="bot-card glass-card p-4 rounded-3xl flex items-center shadow-sm group"
+      >
+        <div
+          class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-3xl mr-4 group-hover:scale-110 transition-transform"
+        >
+          🐢
+        </div>
+        <div class="flex-grow">
+          <h3 class="font-bold text-lg">Fix Jaringan</h3>
+          <p class="text-xs opacity-50 font-mono">@fix_jaringan_bot</p>
+        </div>
+        <div
+          class="w-10 h-10 rounded-full flex items-center justify-center bg-blue-500/5 group-hover:bg-blue-500 transition-colors"
+        >
+          <svg
+            class="w-5 h-5 text-blue-500 group-hover:text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Bot 2: Proxmox Control -->
+      <a
+        href="https://t.me/proxmoxlh_control_bot"
+        class="bot-card glass-card p-4 rounded-3xl flex items-center shadow-sm group"
+      >
+        <div
+          class="w-14 h-14 bg-orange-500/10 rounded-2xl flex items-center justify-center text-3xl mr-4 group-hover:scale-110 transition-transform"
+        >
+          🐶
+        </div>
+        <div class="flex-grow">
+          <h3 class="font-bold text-lg">Proxmox Control</h3>
+          <p class="text-xs opacity-50 font-mono">@proxmoxlh_control_bot</p>
+        </div>
+        <div
+          class="w-10 h-10 rounded-full flex items-center justify-center bg-blue-500/5 group-hover:bg-blue-500 transition-colors"
+        >
+          <svg
+            class="w-5 h-5 text-blue-500 group-hover:text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Bot 3: Web Control -->
+      <a
+        href="https://t.me/web_controllh_bot"
+        class="bot-card glass-card p-4 rounded-3xl flex items-center shadow-sm group"
+      >
+        <div
+          class="w-14 h-14 bg-sky-500/10 rounded-2xl flex items-center justify-center text-3xl mr-4 group-hover:scale-110 transition-transform"
+        >
+          🐬
+        </div>
+        <div class="flex-grow">
+          <h3 class="font-bold text-lg">Web Control</h3>
+          <p class="text-xs opacity-50 font-mono">@web_controllh_bot</p>
+        </div>
+        <div
+          class="w-10 h-10 rounded-full flex items-center justify-center bg-blue-500/5 group-hover:bg-blue-500 transition-colors"
+        >
+          <svg
+            class="w-5 h-5 text-blue-500 group-hover:text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Bot 4: Net Control -->
+      <a
+        href="https://t.me/NetLHControlBot"
+        class="bot-card glass-card p-4 rounded-3xl flex items-center shadow-sm group"
+      >
+        <div
+          class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center text-3xl mr-4 group-hover:scale-110 transition-transform"
+        >
+          🐳
+        </div>
+        <div class="flex-grow">
+          <h3 class="font-bold text-lg">Net Control</h3>
+          <p class="text-xs opacity-50 font-mono">@NetLHControlBot</p>
+        </div>
+        <div
+          class="w-10 h-10 rounded-full flex items-center justify-center bg-blue-500/5 group-hover:bg-blue-500 transition-colors"
+        >
+          <svg
+            class="w-5 h-5 text-blue-500 group-hover:text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Bot 6: Nyalakan PC -->
+      <a
+        href="https://t.me/MenyalakanPCDLHbot"
+        class="bot-card glass-card p-4 rounded-3xl flex items-center shadow-sm group"
+      >
+        <div
+          class="w-14 h-14 bg-red-500/10 rounded-2xl flex items-center justify-center text-3xl mr-4 group-hover:scale-110 transition-transform"
+        >
+          🕊️
+        </div>
+        <div class="flex-grow">
+          <h3 class="font-bold text-lg">Nyalakan PC</h3>
+          <p class="text-xs opacity-50 font-mono">@MenyalakanPCDLHbot</p>
+        </div>
+        <div
+          class="w-10 h-10 rounded-full flex items-center justify-center bg-blue-500/5 group-hover:bg-blue-500 transition-colors"
+        >
+          <svg
+            class="w-5 h-5 text-blue-500 group-hover:text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="3"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- Footer Credit -->
+    <footer class="mt-12 mb-8 text-center">
+      <div
+        class="px-4 py-1.5 bg-blue-500/10 inline-block rounded-full border border-blue-500/20"
+      >
+        <p
+          class="text-[10px] text-blue-500 font-black uppercase tracking-[0.2em]"
+        >
+          Fajar Aji Kusuma • Developer
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const tele = window.Telegram.WebApp;
+      tele.expand();
+      tele.ready();
+
+      // Detect dark mode from Telegram theme
+      if (tele.colorScheme === "dark") {
+        document.documentElement.classList.add("dark");
+      }
+
+      // Apply Telegram theme colors dynamically
+      tele.onEvent("themeChanged", () => {
+        if (tele.colorScheme === "dark") {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      });
+    </script>
+  </body>
+</html>

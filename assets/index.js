@@ -247,10 +247,10 @@ document.addEventListener('contextmenu', event => event.preventDefault());
 // TYPED.JS — nama & keahlian
 // =============================================
 new Typed("#typed-name", {
-    strings: ["Fajar Aji Kusuma"],
+    strings: ["Fajar Aji Kusuma, S.Kom."],
     typeSpeed: 100,
     backSpeed: 50,
-    showCursor: true,
+    showCursor: false,
     loop: false,
 });
 

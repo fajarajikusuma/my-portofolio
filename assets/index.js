@@ -268,8 +268,11 @@ new Typed("#typed-skills", {
 });
 
 // =============================================
-// CERTIFICATE SLIDER — pause on hover
+// WAVE DIVIDER — CSS animation only, no JS parallax
+// (parallax dihapus karena konflik dengan CSS animation
+//  dan menyebabkan transform glitch)
 // =============================================
+
 const slider = document.querySelector('.certificates-slider');
 const container = document.querySelector('.certificates-outer');
 

@@ -56,6 +56,11 @@
   --theme-transition:
     background 0.4s ease, color 0.4s ease, border-color 0.4s ease,
     box-shadow 0.4s ease;
+  /* Warna solid untuk divider — hasil komposit glass-bg di atas bg-gradient dark */
+  /* glass-bg = rgba(6,8,19,0.52) di atas #0d0d2b → ≈ #060810 blended */
+  --glass-bg-solid: #080b18;
+  /* section-projects-bg sudah solid */
+  --projects-bg-solid: #0a0f1c;
 }
 
 /* =============================================
@@ -114,6 +119,11 @@
   --theme-toggle-border: rgba(0, 0, 0, 0.1);
   --theme-toggle-color: #5b3fd4;
   --theme-toggle-hover-bg: rgba(91, 63, 212, 0.08);
+  /* Warna solid untuk divider — hasil komposit glass-bg di atas bg-gradient light */
+  /* glass-bg = rgba(255,255,255,0.72) di atas #e4e0ff → ≈ #edeaff blended */
+  --glass-bg-solid: #eae7ff;
+  /* section-projects light = rgba(255,255,255,0.35) di atas #e4e0ff → ≈ #ece9ff */
+  --projects-bg-solid: #ece9ff;
 }
 
 /* =============================================
@@ -1189,6 +1199,13 @@ noscript h2 {
    SECTION WAVE DIVIDERS
    ============================================= */
 
+/* Wrapper yang menyatukan divider + section dalam satu unit AOS */
+.section-block {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
 .section-divider {
   position: relative;
   width: 100%;
@@ -1203,11 +1220,20 @@ noscript h2 {
 .section-divider svg {
   display: block;
   width: 100%;
-  height: 60px;
+  height: 90px;
 }
 
-/* Animasi wave — hanya horizontal, tidak vertikal agar tidak lompat */
-@keyframes waveFloat {
+/* Warna fill — glass-section background */
+.fill-glass {
+  fill: var(--glass-bg-solid);
+}
+/* Warna fill — projects section background */
+.fill-projects {
+  fill: var(--projects-bg-solid);
+}
+
+/* 3 layer dengan kecepatan berbeda untuk efek depth */
+@keyframes waveA {
   0%,
   100% {
     transform: translateX(0);
@@ -1216,21 +1242,39 @@ noscript h2 {
     transform: translateX(-1.5%);
   }
 }
-@keyframes waveFloat2 {
+@keyframes waveB {
   0%,
   100% {
     transform: translateX(0);
   }
   50% {
-    transform: translateX(1.5%);
+    transform: translateX(2%);
+  }
+}
+@keyframes waveC {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-1%);
   }
 }
 
 .section-divider .wave-layer-1 {
-  animation: waveFloat 9s ease-in-out infinite;
+  animation: waveA 8s ease-in-out infinite;
 }
 .section-divider .wave-layer-2 {
-  animation: waveFloat2 12s ease-in-out infinite;
+  animation: waveB 11s ease-in-out infinite;
+}
+.section-divider .wave-layer-3 {
+  animation: waveC 14s ease-in-out infinite;
+}
+
+@media (max-width: 640px) {
+  .section-divider svg {
+    height: 55px;
+  }
 }
 
 /* =============================================

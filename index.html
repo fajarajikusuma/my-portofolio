@@ -30,15 +30,12 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Tailwind CSS Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
-            fontFamily: {
-              poppins: ["Poppins", "sans-serif"],
-            },
+            fontFamily: { poppins: ["Poppins", "sans-serif"] },
             colors: {
               primary: {
                 DEFAULT: "rgb(141, 0, 184)",
@@ -68,7 +65,6 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <title>Fajar Aji Kusuma &mdash; Portofolio Website</title>
     <link rel="stylesheet" href="assets/style.css" />
-    <!-- Anti-flash: terapkan tema sebelum render -->
     <script>
       (function () {
         var saved = localStorage.getItem("theme");
@@ -83,17 +79,16 @@
   </head>
 
   <body class="excelent font-poppins">
-    <!-- Light mode decorative orbs & pattern -->
     <div class="light-orb-2" aria-hidden="true"></div>
     <div class="light-orb-3" aria-hidden="true"></div>
     <div class="light-pattern" aria-hidden="true"></div>
-    <!-- ===== HEADER / NAVBAR ===== -->
+
+    <!-- ===== NAVBAR ===== -->
     <header class="fixed top-0 left-0 right-0 z-50">
       <div class="max-w-6xl mx-auto px-5" data-aos="fade-down">
         <nav
           class="navbar-glass mt-4 px-5 py-3 flex items-center justify-between"
         >
-          <!-- Logo + nama (selalu tampil di kiri) -->
           <a
             href="#"
             class="flex items-center gap-3 flex-shrink-0 no-underline"
@@ -110,8 +105,6 @@
               <p class="text-xs navbar-brand-sub">Portofolio</p>
             </div>
           </a>
-
-          <!-- Kanan: menu + theme toggle + hamburger (mobile) -->
           <div class="flex items-center gap-1">
             <a href="#about" class="nav-link-item hidden lg:inline-flex"
               >About</a
@@ -142,8 +135,6 @@
             </button>
           </div>
         </nav>
-
-        <!-- Mobile menu dropdown -->
         <div
           id="mobileMenu"
           class="hidden lg:hidden navbar-glass mt-2 rounded-2xl px-5 py-4 flex flex-col gap-1"
@@ -157,7 +148,7 @@
     </header>
 
     <main>
-      <!-- ===== HERO SECTION ===== -->
+      <!-- ===== HERO ===== -->
       <section id="home" data-aos="fade" data-aos-delay="200">
         <div
           class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-24"
@@ -179,511 +170,338 @@
             >
             <a href="#projects" class="btn-secondary-pill">See Projects</a>
           </div>
-          <!-- Social icons -->
           <div class="mt-6 flex justify-center gap-3">
-            <a href="mailto:fajikusuma@gmail.com" class="social-icon-btn">
-              <i class="fas fa-envelope"></i>
-            </a>
+            <a href="mailto:fajikusuma@gmail.com" class="social-icon-btn"
+              ><i class="fas fa-envelope"></i
+            ></a>
             <a
               href="https://maps.app.goo.gl/kD145DbhYdPYrzGZ8"
               class="social-icon-btn"
-            >
-              <i class="fas fa-map-marker-alt"></i>
-            </a>
-            <a href="https://wa.me/+6285293617889" class="social-icon-btn">
-              <i class="fab fa-whatsapp"></i>
-            </a>
+              ><i class="fas fa-map-marker-alt"></i
+            ></a>
+            <a href="https://wa.me/+6285293617889" class="social-icon-btn"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
           </div>
         </div>
       </section>
-      <!-- Divider: Hero → About -->
-      <div class="section-divider" aria-hidden="true">
-        <svg
-          viewBox="0 0 1440 80"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-        >
-          <path
-            class="wave-layer-2"
-            style="fill: var(--glass-bg)"
-            d="M0,80 L0,45 Q120,5 240,38 Q360,70 480,28 Q600,0 720,25 Q840,52 960,18 Q1080,0 1200,32 Q1320,62 1440,42 L1440,80 Z"
-          />
-          <path
-            class="wave-layer-1"
-            style="fill: var(--glass-bg)"
-            d="M0,80 L0,58 Q180,15 360,48 Q540,78 720,38 Q900,5 1080,42 Q1260,75 1440,52 L1440,80 Z"
-            opacity="0.7"
-          />
-        </svg>
-      </div>
+    </main>
+  </body>
+</html>
 
-      <!-- ===== ABOUT SECTION ===== -->
-      <section id="about" data-aos="fade-up">
-        <div class="glass-section py-16">
-          <div class="max-w-5xl mx-auto px-4">
-            <!-- Subtitle -->
-            <p
-              class="text-center text-sm font-medium tracking-widest uppercase mb-2 section-accent"
-            >
-              Discover my story and what drives me.
-            </p>
-            <!-- Title -->
-            <h2 class="text-center text-3xl md:text-4xl font-bold mb-8">
-              About Me
-            </h2>
-
-            <!-- Tabs -->
-            <div class="flex justify-center mb-8">
-              <div
-                class="flex gap-2 bg-white/5 p-1 rounded-full border border-white/10"
-              >
-                <button
-                  id="tab-profile"
-                  onclick="switchTab('profile')"
-                  class="tab-btn tab-active px-6 py-2 rounded-full text-sm font-medium transition-all"
-                >
-                  Profile
-                </button>
-                <button
-                  id="tab-education"
-                  onclick="switchTab('education')"
-                  class="tab-btn px-6 py-2 rounded-full text-sm font-medium transition-all section-muted"
-                >
-                  Education
-                </button>
-              </div>
-            </div>
-
-            <!-- Tab Content -->
-            <div id="pane-profile" class="tab-pane">
-              <div class="flex flex-col md:flex-row items-center gap-10">
-                <div
-                  class="flex-shrink-0 flex justify-center"
-                  data-aos="fade-right"
-                >
-                  <div class="profile-img flex justify-center">
-                    <div class="blob"></div>
-                  </div>
-                </div>
-                <div data-aos="fade-left">
-                  <h4 class="text-xl font-semibold mb-3">
-                    Hi, I'm Fajar Aji Kusuma,
-                  </h4>
-                  <p
-                    class="leading-relaxed"
-                    style="color: var(--text-secondary)"
-                  >
-                    I am an IT Support professional with expertise in managing
-                    networks, hardware, and software, as well as providing
-                    technical solutions to ensure optimal system performance.
-                    Furthermore, I am also a full-stack web developer,
-                    developing web-based applications. I have experience
-                    building user-friendly interfaces and managing efficient
-                    backends. With my combined skills in technical support and
-                    web development, I can bridge the gap between operational
-                    technical needs and innovative digital solutions.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div id="pane-education" class="tab-pane hidden">
-              <div class="flex flex-col md:flex-row items-center gap-10">
-                <div
-                  class="flex-shrink-0 flex justify-center"
-                  data-aos="fade-right"
-                >
-                  <div class="profile-img flex justify-center">
-                    <div class="blob"></div>
-                  </div>
-                </div>
-                <div data-aos="fade-left">
-                  <h4 class="text-xl font-semibold mb-4">Education</h4>
-                  <ul class="timeline">
-                    <li>
-                      <span
-                        >Bachelor of Computer Science - STMIK Widya
-                        Pratama</span
-                      >
-                    </li>
-                    <li>
-                      <span
-                        >SMK N 1 Ampelgading - Computer and Network
-                        Engineering</span
-                      >
-                    </li>
-                    <li>
-                      <span>Certified Frontend Developer</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- Certificates -->
-            <div class="mt-16">
-              <h2
-                class="text-center text-3xl font-bold mb-2"
-                data-aos="fade-up"
-              >
-                Certificates
-              </h2>
-              <p
-                class="text-center text-sm mb-6 section-accent"
-                data-aos="fade-up"
-              >
-                Here are some of my professional certificates.
-              </p>
-              <div class="certificates-outer">
-                <div class="certificates-container">
-                  <div class="certificates-slider" id="certificatesSlider">
-                    <!-- Sertifikat 1 -->
-                    <div
-                      class="certificate-card"
-                      onclick="openModal('certificateModal1')"
-                    >
-                      <img
-                        src="assets/img/sertifikat-dicoding.jpg"
-                        alt="Sertifikat Dicoding"
-                      />
-                    </div>
-                    <!-- Sertifikat 2 -->
-                    <div
-                      class="certificate-card"
-                      onclick="openModal('certificateModal2')"
-                    >
-                      <img
-                        src="assets/img/sertifikat-asisten.jpg"
-                        alt="Sertifikat Asisten"
-                      />
-                    </div>
-                    <!-- Sertifikat 3 -->
-                    <div
-                      class="certificate-card"
-                      onclick="openModal('certificateModal3')"
-                    >
-                      <img
-                        src="assets/img/sertifikat-koor.jpg"
-                        alt="Sertifikat Koordinator"
-                      />
-                    </div>
-                    <!-- Sertifikat 4 -->
-                    <div
-                      class="certificate-card"
-                      onclick="openModal('certificateModal4')"
-                    >
-                      <img
-                        src="assets/img/CCNAV7_Introduction-1.jpg"
-                        alt="CCNA Introduction"
-                      />
-                    </div>
-                    <!-- Sertifikat 5 -->
-                    <div
-                      class="certificate-card"
-                      onclick="openModal('certificateModal5')"
-                    >
-                      <img
-                        src="assets/img/CCNAV7_Switching-1.jpg"
-                        alt="CCNA Switching"
-                      />
-                    </div>
-                  </div>
-                  <!-- end certificates-slider -->
-                </div>
-                <!-- end certificates-container -->
-              </div>
-              <!-- end certificates-outer -->
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Divider: About → Services -->
-      <div class="section-divider" aria-hidden="true">
-        <svg
-          viewBox="0 0 1440 80"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-        >
-          <path
-            class="wave-layer-2"
-            style="fill: var(--glass-bg)"
-            d="M0,0 L0,35 Q180,75 360,42 Q540,12 720,48 Q900,80 1080,38 Q1260,5 1440,35 L1440,0 Z"
-          />
-          <path
-            class="wave-layer-1"
-            style="fill: var(--glass-bg)"
-            d="M0,0 L0,25 Q360,68 720,28 Q1080,0 1440,25 L1440,0 Z"
-            opacity="0.6"
-          />
-        </svg>
-      </div>
-
-      <!-- ===== SERVICES SECTION ===== -->
-      <section id="services" class="py-20" data-aos="fade-up">
-        <div class="max-w-5xl mx-auto px-4">
-          <p
-            class="text-center text-sm font-medium tracking-widest uppercase mb-2 section-accent"
-          >
-            What I Do
-          </p>
-          <h2 class="text-center text-3xl md:text-4xl font-bold mb-12">
-            Services
-          </h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div
-              class="service-card"
-              data-aos="fade-right"
-              data-aos-delay="100"
-            >
-              <div class="service-icon">
-                <i class="fas fa-user-tie"></i>
-              </div>
-              <h5 class="text-lg font-bold mb-2">Consulting</h5>
-              <p class="text-sm leading-relaxed section-muted">
-                Providing consultations for the right technology solutions to
-                suit your business needs.
-              </p>
-              <a href="#" class="service-link">See Examples</a>
-            </div>
-
-            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-              <div class="service-icon">
-                <i class="fas fa-code"></i>
-              </div>
-              <h5 class="text-lg font-bold mb-2">Web Development</h5>
-              <p class="text-sm leading-relaxed section-muted">
-                Build a responsive and functional website with an attractive and
-                easy-to-use appearance.
-              </p>
-              <a href="#" class="service-link">See Examples</a>
-            </div>
-
-            <div class="service-card" data-aos="fade-left" data-aos-delay="300">
-              <div class="service-icon">
-                <i class="fas fa-network-wired"></i>
-              </div>
-              <h5 class="text-lg font-bold mb-2">Network Engineering</h5>
-              <p class="text-sm leading-relaxed section-muted">
-                Design and manage network infrastructure that is reliable and
-                secure to use.
-              </p>
-              <a href="#" class="service-link">See Examples</a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Divider: Services → Projects -->
-      <div class="section-divider" aria-hidden="true">
-        <svg
-          viewBox="0 0 1440 80"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-        >
-          <path
-            class="wave-layer-2"
-            style="fill: var(--section-projects-bg)"
-            d="M0,80 L0,50 L180,15 L360,48 L520,10 L680,44 L840,8 L1000,42 L1160,14 L1320,46 L1440,22 L1440,80 Z"
-          />
-          <path
-            class="wave-layer-1"
-            style="fill: var(--section-projects-bg)"
-            d="M0,80 L0,60 Q240,22 480,56 Q720,85 960,42 Q1200,8 1440,46 L1440,80 Z"
-            opacity="0.75"
-          />
-        </svg>
-      </div>
-
-      <!-- ===== PROJECTS SECTION ===== -->
-      <section id="projects" class="py-20 section-projects" data-aos="fade-up">
-        <div class="max-w-5xl mx-auto px-4">
-          <div class="flex justify-between items-end mb-10">
-            <div>
-              <p
-                class="text-sm font-medium tracking-widest uppercase mb-1 section-accent"
-              >
-                Let's have a look at my portfolio
-              </p>
-              <h2 class="text-3xl md:text-4xl font-bold">Featured Projects</h2>
-            </div>
-            <a href="#" class="btn-outline-pill hidden sm:inline-flex"
-              >All projects</a
-            >
-          </div>
-
-          <!-- Project 1 -->
-          <div class="project-card mb-6" data-aos="fade-right">
-            <div class="project-content">
-              <h5>Portal Resmi | DLH Kota Pekalongan</h5>
-              <p>
-                An application website portal at the Pekalongan City
-                Environmental Service, as the main door to access other
-                applications.
-              </p>
-              <div class="flex flex-wrap gap-2 items-center">
-                <a href="https://dlh.ruijieddns.com" class="btn-project"
-                  >Full project</a
-                >
-                <span class="badge-tag">Web Development</span>
-                <span class="badge-tag">Codeigniter 4</span>
-              </div>
-            </div>
-            <div class="project-img-wrap">
-              <img src="assets/img/portal.png" alt="Portal Resmi DLH" />
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="project-card mb-6" data-aos="fade-left">
-            <div class="project-img-wrap project-img-left">
-              <img src="assets/img/v-mars.png" alt="V-MARS DLH" />
-            </div>
-            <div class="project-content">
-              <h5>V-MARS | DLH Kota Pekalongan</h5>
-              <p>
-                A website to manage vehicle maintenance data and official
-                vehicle taxes at the Pekalongan City Environmental Service.
-              </p>
-              <div class="flex flex-wrap gap-2 items-center">
-                <span class="badge-tag">Codeigniter 4</span>
-                <span class="badge-tag">Fullstack Development</span>
-                <a
-                  href="https://dlh.ruijieddns.com/pemeliharaan"
-                  class="btn-project"
-                  >Full project</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="project-card mb-6" data-aos="fade-right">
-            <div class="project-content">
-              <h5>Sisukem | DISHUB Kab Pemalang</h5>
-              <p>
-                A website for surveying public satisfaction with public services
-                at the Pemalang Transportation Agency, making it easier for the
-                public to provide feedback on services they receive.
-              </p>
-              <div class="flex flex-wrap gap-2 items-center">
-                <a href="https://sisukem.pemalangkab.go.id" class="btn-project"
-                  >Full project</a
-                >
-                <span class="badge-tag">Web Development</span>
-                <span class="badge-tag">Codeigniter 4</span>
-              </div>
-            </div>
-            <div class="project-img-wrap">
-              <img src="assets/img/sisukem.png" alt="Sisukem DISHUB" />
-            </div>
-          </div>
-
-          <!-- Project 4 -->
-          <div class="project-card mb-6" data-aos="fade-left">
-            <div class="project-img-wrap project-img-left">
-              <img src="assets/img/si-talenta.png" alt="Si-Talenta DLH" />
-            </div>
-            <div class="project-content">
-              <h5>Si-Talenta | DLH Kota Pekalongan</h5>
-              <p>
-                A website for managing regional government contract workers at
-                the Pekalongan City Environmental Agency, facilitating search
-                and management of employee data.
-              </p>
-              <div class="flex flex-wrap gap-2 items-center">
-                <span class="badge-tag">Codeigniter 4</span>
-                <span class="badge-tag">Fullstack Development</span>
-                <a
-                  href="https://dlh.ruijieddns.com/si-talenta/"
-                  class="btn-project"
-                  >Full project</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 5 -->
-          <div class="project-card" data-aos="fade-right">
-            <div class="project-content">
-              <h5>PF Computer | Landing Page</h5>
-              <p>
-                A landing page for PF Computer designed to introduce the
-                services and products it offers, with a responsive and
-                attractive design that is easy to navigate.
-              </p>
-              <div class="flex flex-wrap gap-2 items-center">
-                <a href="https://pf-computer.vercel.app/" class="btn-project"
-                  >Full project</a
-                >
-                <span class="badge-tag">Landing Page</span>
-                <span class="badge-tag">App Design</span>
-              </div>
-            </div>
-            <div class="project-img-wrap">
-              <img src="assets/img/pf-com.png" alt="PF Computer" />
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Divider: Projects → Contact -->
-      <div class="section-divider" aria-hidden="true">
-        <svg
-          viewBox="0 0 1440 80"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-        >
-          <path
-            class="wave-layer-2"
-            style="fill: var(--section-projects-bg)"
-            d="M0,0 L0,30 Q360,72 720,34 Q1080,2 1440,32 L1440,0 Z"
-          />
-          <path
-            class="wave-layer-1"
-            style="fill: var(--section-projects-bg)"
-            d="M0,0 L0,18 Q180,55 360,25 Q540,2 720,40 Q900,75 1080,32 Q1260,2 1440,22 L1440,0 Z"
-            opacity="0.6"
-          />
-        </svg>
-      </div>
-
-      <!-- ===== CONTACT SECTION ===== -->
-      <section
-        id="contact"
-        class="py-20 flex justify-center items-center min-h-[60vh]"
-        data-aos="fade-up"
+<!-- ===== ABOUT ===== -->
+<section id="about" class="wave-top-glass" data-aos="fade-up">
+  <div class="glass-section py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <p
+        class="text-center text-sm font-medium tracking-widest uppercase mb-2 section-accent"
       >
+        Discover my story and what drives me.
+      </p>
+      <h2 class="text-center text-3xl md:text-4xl font-bold mb-8">About Me</h2>
+      <div class="flex justify-center mb-8">
+        <div
+          class="flex gap-2 bg-white/5 p-1 rounded-full border border-white/10"
+        >
+          <button
+            id="tab-profile"
+            onclick="switchTab('profile')"
+            class="tab-btn tab-active px-6 py-2 rounded-full text-sm font-medium transition-all"
+          >
+            Profile
+          </button>
+          <button
+            id="tab-education"
+            onclick="switchTab('education')"
+            class="tab-btn px-6 py-2 rounded-full text-sm font-medium transition-all section-muted"
+          >
+            Education
+          </button>
+        </div>
+      </div>
+      <div id="pane-profile" class="tab-pane">
+        <div class="flex flex-col md:flex-row items-center gap-10">
+          <div class="flex-shrink-0 flex justify-center" data-aos="fade-right">
+            <div class="profile-img flex justify-center">
+              <div class="blob"></div>
+            </div>
+          </div>
+          <div data-aos="fade-left">
+            <h4 class="text-xl font-semibold mb-3">
+              Hi, I'm Fajar Aji Kusuma,
+            </h4>
+            <p class="leading-relaxed" style="color: var(--text-secondary)">
+              I am an IT Support professional with expertise in managing
+              networks, hardware, and software, as well as providing technical
+              solutions to ensure optimal system performance. Furthermore, I am
+              also a full-stack web developer, developing web-based
+              applications. I have experience building user-friendly interfaces
+              and managing efficient backends. With my combined skills in
+              technical support and web development, I can bridge the gap
+              between operational technical needs and innovative digital
+              solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="pane-education" class="tab-pane hidden">
+        <div class="flex flex-col md:flex-row items-center gap-10">
+          <div class="flex-shrink-0 flex justify-center" data-aos="fade-right">
+            <div class="profile-img flex justify-center">
+              <div class="blob"></div>
+            </div>
+          </div>
+          <div data-aos="fade-left">
+            <h4 class="text-xl font-semibold mb-4">Education</h4>
+            <ul class="timeline">
+              <li>
+                <span>Bachelor of Computer Science - STMIK Widya Pratama</span>
+              </li>
+              <li>
+                <span
+                  >SMK N 1 Ampelgading - Computer and Network Engineering</span
+                >
+              </li>
+              <li><span>Certified Frontend Developer</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mt-16">
+        <h2 class="text-center text-3xl font-bold mb-2" data-aos="fade-up">
+          Certificates
+        </h2>
+        <p class="text-center text-sm mb-6 section-accent" data-aos="fade-up">
+          Here are some of my professional certificates.
+        </p>
+        <div class="certificates-outer">
+          <div class="certificates-container">
+            <div class="certificates-slider" id="certificatesSlider">
+              <div
+                class="certificate-card"
+                onclick="openModal('certificateModal1')"
+              >
+                <img
+                  src="assets/img/sertifikat-dicoding.jpg"
+                  alt="Sertifikat Dicoding"
+                />
+              </div>
+              <div
+                class="certificate-card"
+                onclick="openModal('certificateModal2')"
+              >
+                <img
+                  src="assets/img/sertifikat-asisten.jpg"
+                  alt="Sertifikat Asisten"
+                />
+              </div>
+              <div
+                class="certificate-card"
+                onclick="openModal('certificateModal3')"
+              >
+                <img
+                  src="assets/img/sertifikat-koor.jpg"
+                  alt="Sertifikat Koordinator"
+                />
+              </div>
+              <div
+                class="certificate-card"
+                onclick="openModal('certificateModal4')"
+              >
+                <img
+                  src="assets/img/CCNAV7_Introduction-1.jpg"
+                  alt="CCNA Introduction"
+                />
+              </div>
+              <div
+                class="certificate-card"
+                onclick="openModal('certificateModal5')"
+              >
+                <img
+                  src="assets/img/CCNAV7_Switching-1.jpg"
+                  alt="CCNA Switching"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services" class="py-20 wave-top-plain" data-aos="fade-up">
+  <div class="max-w-5xl mx-auto px-4">
+    <p
+      class="text-center text-sm font-medium tracking-widest uppercase mb-2 section-accent"
+    >
+      What I Do
+    </p>
+    <h2 class="text-center text-3xl md:text-4xl font-bold mb-12">Services</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="service-card" data-aos="fade-right" data-aos-delay="100">
+        <div class="service-icon"><i class="fas fa-user-tie"></i></div>
+        <h5 class="text-lg font-bold mb-2">Consulting</h5>
+        <p class="text-sm leading-relaxed section-muted">
+          Providing consultations for the right technology solutions to suit
+          your business needs.
+        </p>
+        <a href="#" class="service-link">See Examples</a>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-icon"><i class="fas fa-code"></i></div>
+        <h5 class="text-lg font-bold mb-2">Web Development</h5>
+        <p class="text-sm leading-relaxed section-muted">
+          Build a responsive and functional website with an attractive and
+          easy-to-use appearance.
+        </p>
+        <a href="#" class="service-link">See Examples</a>
+      </div>
+      <div class="service-card" data-aos="fade-left" data-aos-delay="300">
+        <div class="service-icon"><i class="fas fa-network-wired"></i></div>
+        <h5 class="text-lg font-bold mb-2">Network Engineering</h5>
+        <p class="text-sm leading-relaxed section-muted">
+          Design and manage network infrastructure that is reliable and secure
+          to use.
+        </p>
+        <a href="#" class="service-link">See Examples</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section
+  id="projects"
+  class="py-20 section-projects wave-top-projects"
+  data-aos="fade-up"
+>
+  <div class="max-w-5xl mx-auto px-4">
+    <div class="flex justify-between items-end mb-10">
+      <div>
+        <p
+          class="text-sm font-medium tracking-widest uppercase mb-1 section-accent"
+        >
+          Let's have a look at my portfolio
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold">Featured Projects</h2>
+      </div>
+      <a href="#" class="btn-outline-pill hidden sm:inline-flex"
+        >All projects</a
+      >
+    </div>
+    <div class="project-card mb-6" data-aos="fade-right">
+      <div class="project-content">
+        <h5>Portal Resmi | DLH Kota Pekalongan</h5>
+        <p>
+          An application website portal at the Pekalongan City Environmental
+          Service, as the main door to access other applications.
+        </p>
+        <div class="flex flex-wrap gap-2 items-center">
+          <a href="https://dlh.ruijieddns.com" class="btn-project"
+            >Full project</a
+          >
+          <span class="badge-tag">Web Development</span
+          ><span class="badge-tag">Codeigniter 4</span>
+        </div>
+      </div>
+      <div class="project-img-wrap">
+        <img src="assets/img/portal.png" alt="Portal Resmi DLH" />
+      </div>
+    </div>
+    <div class="project-card mb-6" data-aos="fade-left">
+      <div class="project-img-wrap project-img-left">
+        <img src="assets/img/v-mars.png" alt="V-MARS DLH" />
+      </div>
+      <div class="project-content">
+        <h5>V-MARS | DLH Kota Pekalongan</h5>
+        <p>
+          A website to manage vehicle maintenance data and official vehicle
+          taxes at the Pekalongan City Environmental Service.
+        </p>
+        <div class="flex flex-wrap gap-2 items-center">
+          <span class="badge-tag">Codeigniter 4</span
+          ><span class="badge-tag">Fullstack Development</span>
+          <a href="https://dlh.ruijieddns.com/pemeliharaan" class="btn-project"
+            >Full project</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="project-card mb-6" data-aos="fade-right">
+      <div class="project-content">
+        <h5>Sisukem | DISHUB Kab Pemalang</h5>
+        <p>
+          A website for surveying public satisfaction with public services at
+          the Pemalang Transportation Agency, making it easier for the public to
+          provide feedback on services they receive.
+        </p>
+        <div class="flex flex-wrap gap-2 items-center">
+          <a href="https://sisukem.pemalangkab.go.id" class="btn-project"
+            >Full project</a
+          >
+          <span class="badge-tag">Web Development</span
+          ><span class="badge-tag">Codeigniter 4</span>
+        </div>
+      </div>
+      <div class="project-img-wrap">
+        <img src="assets/img/sisukem.png" alt="Sisukem DISHUB" />
+      </div>
+    </div>
+    <div class="project-card mb-6" data-aos="fade-left">
+      <div class="project-img-wrap project-img-left">
+        <img src="assets/img/si-talenta.png" alt="Si-Talenta DLH" />
+      </div>
+      <div class="project-content">
+        <h5>Si-Talenta | DLH Kota Pekalongan</h5>
+        <p>
+          A website for managing regional government contract workers at the
+          Pekalongan City Environmental Agency, facilitating search and
+          management of employee data.
+        </p>
+        <div class="flex flex-wrap gap-2 items-center">
+          <span class="badge-tag">Codeigniter 4</span
+          ><span class="badge-tag">Fullstack Development</span>
+          <a href="https://dlh.ruijieddns.com/si-talenta/" class="btn-project"
+            >Full project</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="project-card" data-aos="fade-right">
+      <div class="project-content">
+        <h5>PF Computer | Landing Page</h5>
+        <p>
+          A landing page for PF Computer designed to introduce the services and
+          products it offers, with a responsive and attractive design that is
+          easy to navigate.
+        </p>
+        <div class="flex flex-wrap gap-2 items-center">
+          <a href="https://pf-computer.vercel.app/" class="btn-project"
+            >Full project</a
+          >
+          <span class="badge-tag">Landing Page</span
+          ><span class="badge-tag">App Design</span>
+        </div>
+      </div>
+      <div class="project-img-wrap">
+        <img src="assets/img/pf-com.png" alt="PF Computer" />
+      </div>
+    </div>
+  </div>
+</section>
+
+      <!-- ===== CONTACT ===== -->
+      <section id="contact" class="py-20 flex justify-center items-center min-h-[60vh] wave-top-projects" data-aos="fade-up">
         <div class="max-w-5xl mx-auto px-4 text-center">
-          <p
-            class="text-sm font-medium tracking-widest uppercase mb-2 section-accent"
-          >
-            Let's Work together
-          </p>
+          <p class="text-sm font-medium tracking-widest uppercase mb-2 section-accent">Let's Work together</p>
           <h2 class="text-3xl md:text-4xl font-bold mb-3">Contact Me</h2>
-          <p class="mb-8 max-w-md mx-auto" style="color: var(--text-muted)">
-            If you are interested in collaborating or have a project idea in
-            mind, feel free to reach out
-          </p>
-          <div
-            class="flex justify-center gap-4"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <a href="mailto:fajikusuma@gmail.com" class="contact-icon">
-              <i class="fas fa-envelope"></i>
-            </a>
-            <a
-              href="https://maps.app.goo.gl/kD145DbhYdPYrzGZ8"
-              target="_blank"
-              class="contact-icon"
-            >
-              <i class="fas fa-map-marker-alt"></i>
-            </a>
-            <a
-              href="https://wa.me/+6285293617889"
-              target="_blank"
-              class="contact-icon"
-            >
-              <i class="fab fa-whatsapp"></i>
-            </a>
+          <p class="mb-8 max-w-md mx-auto" style="color:var(--text-muted)">If you are interested in collaborating or have a project idea in mind, feel free to reach out</p>
+          <div class="flex justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+            <a href="mailto:fajikusuma@gmail.com" class="contact-icon"><i class="fas fa-envelope"></i></a>
+            <a href="https://maps.app.goo.gl/kD145DbhYdPYrzGZ8" target="_blank" class="contact-icon"><i class="fas fa-map-marker-alt"></i></a>
+            <a href="https://wa.me/+6285293617889" target="_blank" class="contact-icon"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
       </section>
@@ -694,164 +512,65 @@
       <p>&copy; 2025 - Present, Made with ❤️ by Fajar Aji Kusuma, S.Kom.</p>
     </footer>
 
-    <!-- Scroll to top button -->
     <div id="scrollToTopButton" class="fixed bottom-6 right-6 z-50 hidden">
-      <button
-        onclick="scrollToTop()"
-        class="w-11 h-11 rounded-full border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all duration-300 flex items-center justify-center shadow-lg"
-      >
+      <button onclick="scrollToTop()" class="w-11 h-11 rounded-full border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all duration-300 flex items-center justify-center shadow-lg">
         <i class="fas fa-arrow-up"></i>
       </button>
     </div>
 
     <!-- ===== MODALS ===== -->
-    <!-- Modal Sertifikat 1 -->
-    <div
-      id="certificateModal1"
-      class="modal-overlay hidden"
-      onclick="closeModalOutside(event, 'certificateModal1')"
-    >
+    <div id="certificateModal1" class="modal-overlay hidden" onclick="closeModalOutside(event,'certificateModal1')">
       <div class="modal-box">
         <div class="modal-header">
-          <h5 class="font-semibold text-white">
-            Certificate Viewer - Frontend Developer
-          </h5>
-          <button
-            onclick="closeModal('certificateModal1')"
-            class="modal-close-btn"
-          >
-            <i class="fas fa-times"></i>
-          </button>
+          <h5 class="font-semibold text-white">Certificate Viewer - Frontend Developer</h5>
+          <button onclick="closeModal('certificateModal1')" class="modal-close-btn"><i class="fas fa-times"></i></button>
         </div>
-        <div class="p-0">
-          <iframe
-            src="assets/pdfjs/web/viewer.html?file=/assets/document/sertifikat_dicoding.pdf"
-            style="width: 100%; height: 80vh; border: none"
-          ></iframe>
-        </div>
+        <div class="p-0"><iframe src="assets/pdfjs/web/viewer.html?file=/assets/document/sertifikat_dicoding.pdf" style="width:100%;height:80vh;border:none"></iframe></div>
       </div>
     </div>
-
-    <!-- Modal Sertifikat 2 -->
-    <div
-      id="certificateModal2"
-      class="modal-overlay hidden"
-      onclick="closeModalOutside(event, 'certificateModal2')"
-    >
+    <div id="certificateModal2" class="modal-overlay hidden" onclick="closeModalOutside(event,'certificateModal2')">
       <div class="modal-box">
         <div class="modal-header">
-          <h5 class="font-semibold text-white">
-            Certificate Viewer - Computer UPT Assistant
-          </h5>
-          <button
-            onclick="closeModal('certificateModal2')"
-            class="modal-close-btn"
-          >
-            <i class="fas fa-times"></i>
-          </button>
+          <h5 class="font-semibold text-white">Certificate Viewer - Computer UPT Assistant</h5>
+          <button onclick="closeModal('certificateModal2')" class="modal-close-btn"><i class="fas fa-times"></i></button>
         </div>
-        <div class="p-0">
-          <iframe
-            src="assets/pdfjs/web/viewer.html?file=/assets/document/sertifikat_asisten.pdf"
-            style="width: 100%; height: 80vh; border: none"
-          ></iframe>
-        </div>
+        <div class="p-0"><iframe src="assets/pdfjs/web/viewer.html?file=/assets/document/sertifikat_asisten.pdf" style="width:100%;height:80vh;border:none"></iframe></div>
       </div>
     </div>
-
-    <!-- Modal Sertifikat 3 -->
-    <div
-      id="certificateModal3"
-      class="modal-overlay hidden"
-      onclick="closeModalOutside(event, 'certificateModal3')"
-    >
+    <div id="certificateModal3" class="modal-overlay hidden" onclick="closeModalOutside(event,'certificateModal3')">
       <div class="modal-box">
         <div class="modal-header">
-          <h5 class="font-semibold text-white">
-            Certificate Viewer - Computer UPT Coordinator
-          </h5>
-          <button
-            onclick="closeModal('certificateModal3')"
-            class="modal-close-btn"
-          >
-            <i class="fas fa-times"></i>
-          </button>
+          <h5 class="font-semibold text-white">Certificate Viewer - Computer UPT Coordinator</h5>
+          <button onclick="closeModal('certificateModal3')" class="modal-close-btn"><i class="fas fa-times"></i></button>
         </div>
-        <div class="p-0">
-          <iframe
-            src="assets/pdfjs/web/viewer.html?file=/assets/document/sertifikat_koor.pdf"
-            style="width: 100%; height: 80vh; border: none"
-          ></iframe>
-        </div>
+        <div class="p-0"><iframe src="assets/pdfjs/web/viewer.html?file=/assets/document/sertifikat_koor.pdf" style="width:100%;height:80vh;border:none"></iframe></div>
       </div>
     </div>
-
-    <!-- Modal Sertifikat 4 -->
-    <div
-      id="certificateModal4"
-      class="modal-overlay hidden"
-      onclick="closeModalOutside(event, 'certificateModal4')"
-    >
+    <div id="certificateModal4" class="modal-overlay hidden" onclick="closeModalOutside(event,'certificateModal4')">
       <div class="modal-box">
         <div class="modal-header">
-          <h5 class="font-semibold text-white">
-            Certificate Viewer - Cisco V7 Introduction to Network
-          </h5>
-          <button
-            onclick="closeModal('certificateModal4')"
-            class="modal-close-btn"
-          >
-            <i class="fas fa-times"></i>
-          </button>
+          <h5 class="font-semibold text-white">Certificate Viewer - Cisco V7 Introduction to Network</h5>
+          <button onclick="closeModal('certificateModal4')" class="modal-close-btn"><i class="fas fa-times"></i></button>
         </div>
-        <div class="p-0">
-          <iframe
-            src="assets/pdfjs/web/viewer.html?file=/assets/document/CCNAV7_Introduction.pdf"
-            style="width: 100%; height: 80vh; border: none"
-          ></iframe>
-        </div>
+        <div class="p-0"><iframe src="assets/pdfjs/web/viewer.html?file=/assets/document/CCNAV7_Introduction.pdf" style="width:100%;height:80vh;border:none"></iframe></div>
       </div>
     </div>
-
-    <!-- Modal Sertifikat 5 -->
-    <div
-      id="certificateModal5"
-      class="modal-overlay hidden"
-      onclick="closeModalOutside(event, 'certificateModal5')"
-    >
+    <div id="certificateModal5" class="modal-overlay hidden" onclick="closeModalOutside(event,'certificateModal5')">
       <div class="modal-box">
         <div class="modal-header">
-          <h5 class="font-semibold text-white">
-            Certificate Viewer - Cisco V7 Switching, Routing, and Wireless
-            Essentials
-          </h5>
-          <button
-            onclick="closeModal('certificateModal5')"
-            class="modal-close-btn"
-          >
-            <i class="fas fa-times"></i>
-          </button>
+          <h5 class="font-semibold text-white">Certificate Viewer - Cisco V7 Switching, Routing, and Wireless Essentials</h5>
+          <button onclick="closeModal('certificateModal5')" class="modal-close-btn"><i class="fas fa-times"></i></button>
         </div>
-        <div class="p-0">
-          <iframe
-            src="assets/pdfjs/web/viewer.html?file=/assets/document/CCNAV7_Switching.pdf"
-            style="width: 100%; height: 80vh; border: none"
-          ></iframe>
-        </div>
+        <div class="p-0"><iframe src="assets/pdfjs/web/viewer.html?file=/assets/document/CCNAV7_Switching.pdf" style="width:100%;height:80vh;border:none"></iframe></div>
       </div>
     </div>
-    <!-- end modal -->
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="assets/index.js"></script>
 
     <noscript>
-      <style>
-        body > *:not(noscript) {
-          display: none;
-        }
-      </style>
+      <style>body > *:not(noscript) { display: none; }</style>
       <h2>⚠️ JavaScript Nonaktif</h2>
       <p>Aktifkan JavaScript di browser Anda untuk mengakses website ini.</p>
     </noscript>

@@ -161,7 +161,7 @@ new Typed("#typed-skills", {
 // CERTIFICATE SLIDER — pause on hover
 // =============================================
 const slider = document.querySelector('.certificates-slider');
-const container = document.querySelector('.certificates-container');
+const container = document.querySelector('.certificates-outer');
 
 if (container && slider) {
     container.addEventListener('mouseenter', () => {

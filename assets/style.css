@@ -349,24 +349,99 @@ body::before {
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 35px rgba(141, 0, 184, 0.25),
+    0 0 15px rgba(59, 130, 246, 0.2);
 }
 
-.project-img-wrap {
-  flex-shrink: 0;
-  width: 100%;
-  max-height: 260px;
+/* Bagian teks */
+.project-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem 1.75rem;
+  min-width: 0;
+}
+
+.project-content h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: #f3f4f6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-content p {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  line-height: 1.6;
+  margin-bottom: 0.85rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-@media (min-width: 768px) {
-  .project-img-wrap {
-    width: 280px;
-    max-height: 100%;
+/* Wrapper gambar — lebar tetap, tinggi penuh card */
+.project-img-wrap {
+  flex-shrink: 0;
+  width: 300px;
+  height: 100%;
+  overflow: hidden;
+  align-self: stretch;
+  /* gambar di kanan: radius kanan saja */
+  border-radius: 0 18px 18px 0;
+}
+
+/* gambar di kiri (project 2 & 4): radius kiri saja */
+.project-img-left {
+  border-radius: 18px 0 0 18px;
+}
+
+.project-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-img-wrap img {
+  transform: scale(1.04);
+}
+
+/* Mobile: stack vertikal */
+@media (max-width: 767px) {
+  .project-card {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .project-img-wrap,
+  .project-img-left {
+    width: 100%;
+    height: 180px;
+    border-radius: 0;
+  }
+
+  .project-img-left {
+    order: 2;
+  }
+
+  .project-content {
+    order: 1;
   }
 }
 
@@ -419,8 +494,11 @@ body::before {
   border-radius: 20px;
   overflow: hidden;
   padding: 9px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease,
+    z-index 0s;
   cursor: pointer;
   height: 250px;
   min-width: 340px;
@@ -452,11 +530,14 @@ body::before {
   object-fit: cover;
 }
 
+/* Hover: timbul keluar, z-index naik agar tidak tertutup card lain */
 .certificate-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-14px) scale(1.05);
+  z-index: 10;
   box-shadow:
-    0 0 30px rgba(75, 140, 245, 0.9),
-    0 0 60px rgba(75, 140, 245, 0.4);
+    0 24px 48px rgba(0, 0, 0, 0.65),
+    0 0 28px rgba(75, 140, 245, 0.55),
+    0 0 60px rgba(75, 140, 245, 0.2);
 }
 
 @keyframes rotate {
@@ -465,10 +546,20 @@ body::before {
   }
 }
 
+/* Wrapper luar: clip horizontal saja, beri padding vertikal agar card bisa timbul */
+.certificates-outer {
+  width: 100%;
+  overflow: hidden; /* clip kiri-kanan agar slider tidak meluber */
+  padding: 50px 0 16px; /* ruang atas besar agar shadow hover tidak terpotong */
+  margin-top: 20px;
+  position: relative;
+  z-index: 0;
+}
+
+/* Container dalam: overflow visible agar card bisa naik melewati batas */
 .certificates-container {
   width: 100%;
-  overflow: hidden;
-  margin-top: 20px;
+  overflow: visible;
 }
 
 .certificates-slider {
@@ -487,7 +578,7 @@ body::before {
   }
 }
 
-.certificates-container:hover .certificates-slider {
+.certificates-outer:hover .certificates-slider {
   animation-play-state: paused;
 }
 
@@ -572,10 +663,10 @@ body::before {
 /* =============================================
    AOS OVERFLOW FIX
    ============================================= */
-[data-aos] {
+/* Hanya clip pada elemen yang memang perlu, bukan semua [data-aos] */
+section[data-aos] {
   max-width: 100%;
   box-sizing: border-box;
-  overflow-x: clip;
 }
 
 /* =============================================

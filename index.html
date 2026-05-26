@@ -270,65 +270,78 @@
             </div>
 
             <!-- Certificates -->
-            <div class="mt-16" data-aos="fade-up">
-              <h2 class="text-center text-3xl font-bold mb-2">Certificates</h2>
-              <p class="text-center text-purple-400 text-sm mb-6">
+            <div class="mt-16">
+              <h2
+                class="text-center text-3xl font-bold mb-2"
+                data-aos="fade-up"
+              >
+                Certificates
+              </h2>
+              <p
+                class="text-center text-purple-400 text-sm mb-6"
+                data-aos="fade-up"
+              >
                 Here are some of my professional certificates.
               </p>
-              <div class="certificates-container">
-                <div class="certificates-slider" id="certificatesSlider">
-                  <!-- Sertifikat 1 -->
-                  <div
-                    class="certificate-card"
-                    onclick="openModal('certificateModal1')"
-                  >
-                    <img
-                      src="assets/img/sertifikat-dicoding.jpg"
-                      alt="Sertifikat Dicoding"
-                    />
+              <div class="certificates-outer">
+                <div class="certificates-container">
+                  <div class="certificates-slider" id="certificatesSlider">
+                    <!-- Sertifikat 1 -->
+                    <div
+                      class="certificate-card"
+                      onclick="openModal('certificateModal1')"
+                    >
+                      <img
+                        src="assets/img/sertifikat-dicoding.jpg"
+                        alt="Sertifikat Dicoding"
+                      />
+                    </div>
+                    <!-- Sertifikat 2 -->
+                    <div
+                      class="certificate-card"
+                      onclick="openModal('certificateModal2')"
+                    >
+                      <img
+                        src="assets/img/sertifikat-asisten.jpg"
+                        alt="Sertifikat Asisten"
+                      />
+                    </div>
+                    <!-- Sertifikat 3 -->
+                    <div
+                      class="certificate-card"
+                      onclick="openModal('certificateModal3')"
+                    >
+                      <img
+                        src="assets/img/sertifikat-koor.jpg"
+                        alt="Sertifikat Koordinator"
+                      />
+                    </div>
+                    <!-- Sertifikat 4 -->
+                    <div
+                      class="certificate-card"
+                      onclick="openModal('certificateModal4')"
+                    >
+                      <img
+                        src="assets/img/CCNAV7_Introduction-1.jpg"
+                        alt="CCNA Introduction"
+                      />
+                    </div>
+                    <!-- Sertifikat 5 -->
+                    <div
+                      class="certificate-card"
+                      onclick="openModal('certificateModal5')"
+                    >
+                      <img
+                        src="assets/img/CCNAV7_Switching-1.jpg"
+                        alt="CCNA Switching"
+                      />
+                    </div>
                   </div>
-                  <!-- Sertifikat 2 -->
-                  <div
-                    class="certificate-card"
-                    onclick="openModal('certificateModal2')"
-                  >
-                    <img
-                      src="assets/img/sertifikat-asisten.jpg"
-                      alt="Sertifikat Asisten"
-                    />
-                  </div>
-                  <!-- Sertifikat 3 -->
-                  <div
-                    class="certificate-card"
-                    onclick="openModal('certificateModal3')"
-                  >
-                    <img
-                      src="assets/img/sertifikat-koor.jpg"
-                      alt="Sertifikat Koordinator"
-                    />
-                  </div>
-                  <!-- Sertifikat 4 -->
-                  <div
-                    class="certificate-card"
-                    onclick="openModal('certificateModal4')"
-                  >
-                    <img
-                      src="assets/img/CCNAV7_Introduction-1.jpg"
-                      alt="CCNA Introduction"
-                    />
-                  </div>
-                  <!-- Sertifikat 5 -->
-                  <div
-                    class="certificate-card"
-                    onclick="openModal('certificateModal5')"
-                  >
-                    <img
-                      src="assets/img/CCNAV7_Switching-1.jpg"
-                      alt="CCNA Switching"
-                    />
-                  </div>
+                  <!-- end certificates-slider -->
                 </div>
+                <!-- end certificates-container -->
               </div>
+              <!-- end certificates-outer -->
             </div>
           </div>
         </div>
@@ -411,15 +424,10 @@
           </div>
 
           <!-- Project 1 -->
-          <div
-            class="project-card flex flex-col md:flex-row items-center mb-6"
-            data-aos="fade-right"
-          >
-            <div class="p-6 flex-1">
-              <h5 class="text-lg font-bold mb-2">
-                Portal Resmi | DLH Kota Pekalongan
-              </h5>
-              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+          <div class="project-card mb-6" data-aos="fade-right">
+            <div class="project-content">
+              <h5>Portal Resmi | DLH Kota Pekalongan</h5>
+              <p>
                 An application website portal at the Pekalongan City
                 Environmental Service, as the main door to access other
                 applications.
@@ -433,31 +441,18 @@
               </div>
             </div>
             <div class="project-img-wrap">
-              <img
-                src="assets/img/portal.png"
-                class="w-full h-full object-cover"
-                alt="Project 1"
-              />
+              <img src="assets/img/portal.png" alt="Portal Resmi DLH" />
             </div>
           </div>
 
           <!-- Project 2 -->
-          <div
-            class="project-card flex flex-col md:flex-row items-center mb-6"
-            data-aos="fade-left"
-          >
-            <div class="project-img-wrap order-last md:order-first">
-              <img
-                src="assets/img/v-mars.png"
-                class="w-full h-full object-cover"
-                alt="Project 2"
-              />
+          <div class="project-card mb-6" data-aos="fade-left">
+            <div class="project-img-wrap project-img-left">
+              <img src="assets/img/v-mars.png" alt="V-MARS DLH" />
             </div>
-            <div class="p-6 flex-1">
-              <h5 class="text-lg font-bold mb-2">
-                V-MARS | DLH Kota Pekalongan
-              </h5>
-              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+            <div class="project-content">
+              <h5>V-MARS | DLH Kota Pekalongan</h5>
+              <p>
                 A website to manage vehicle maintenance data and official
                 vehicle taxes at the Pekalongan City Environmental Service.
               </p>
@@ -474,19 +469,13 @@
           </div>
 
           <!-- Project 3 -->
-          <div
-            class="project-card flex flex-col md:flex-row items-center mb-6"
-            data-aos="fade-right"
-          >
-            <div class="p-6 flex-1">
-              <h5 class="text-lg font-bold mb-2">
-                Sisukem | DISHUB Kab Pemalang
-              </h5>
-              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+          <div class="project-card mb-6" data-aos="fade-right">
+            <div class="project-content">
+              <h5>Sisukem | DISHUB Kab Pemalang</h5>
+              <p>
                 A website for surveying public satisfaction with public services
-                at the Pemalang Transportation Agency. This website is designed
-                to make it easier for the public to provide feedback and
-                suggestions regarding the services they receive.
+                at the Pemalang Transportation Agency, making it easier for the
+                public to provide feedback on services they receive.
               </p>
               <div class="flex flex-wrap gap-2 items-center">
                 <a href="https://sisukem.pemalangkab.go.id" class="btn-project"
@@ -497,35 +486,21 @@
               </div>
             </div>
             <div class="project-img-wrap">
-              <img
-                src="assets/img/sisukem.png"
-                class="w-full h-full object-cover"
-                alt="Project 3"
-              />
+              <img src="assets/img/sisukem.png" alt="Sisukem DISHUB" />
             </div>
           </div>
 
           <!-- Project 4 -->
-          <div
-            class="project-card flex flex-col md:flex-row items-center mb-6"
-            data-aos="fade-left"
-          >
-            <div class="project-img-wrap order-last md:order-first">
-              <img
-                src="assets/img/si-talenta.png"
-                class="w-full h-full object-cover"
-                alt="Project 4"
-              />
+          <div class="project-card mb-6" data-aos="fade-left">
+            <div class="project-img-wrap project-img-left">
+              <img src="assets/img/si-talenta.png" alt="Si-Talenta DLH" />
             </div>
-            <div class="p-6 flex-1">
-              <h5 class="text-lg font-bold mb-2">
-                Si-Talenta | DLH Kota Pekalongan
-              </h5>
-              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+            <div class="project-content">
+              <h5>Si-Talenta | DLH Kota Pekalongan</h5>
+              <p>
                 A website for managing regional government contract workers at
-                the Pekalongan City Environmental Agency (DLH), designed to
-                facilitate the search and management of employee data at the
-                Pekalongan City Environmental Agency.
+                the Pekalongan City Environmental Agency, facilitating search
+                and management of employee data.
               </p>
               <div class="flex flex-wrap gap-2 items-center">
                 <span class="badge-tag">Codeigniter 4</span>
@@ -540,16 +515,13 @@
           </div>
 
           <!-- Project 5 -->
-          <div
-            class="project-card flex flex-col md:flex-row items-center"
-            data-aos="fade-right"
-          >
-            <div class="p-6 flex-1">
-              <h5 class="text-lg font-bold mb-2">PF Computer | Landing Page</h5>
-              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+          <div class="project-card" data-aos="fade-right">
+            <div class="project-content">
+              <h5>PF Computer | Landing Page</h5>
+              <p>
                 A landing page for PF Computer designed to introduce the
-                services and products it offers. This page has a responsive and
-                attractive design, and is easy to navigate.
+                services and products it offers, with a responsive and
+                attractive design that is easy to navigate.
               </p>
               <div class="flex flex-wrap gap-2 items-center">
                 <a href="https://pf-computer.vercel.app/" class="btn-project"
@@ -560,11 +532,7 @@
               </div>
             </div>
             <div class="project-img-wrap">
-              <img
-                src="assets/img/pf-com.png"
-                class="w-full h-full object-cover"
-                alt="Project 5"
-              />
+              <img src="assets/img/pf-com.png" alt="PF Computer" />
             </div>
           </div>
         </div>

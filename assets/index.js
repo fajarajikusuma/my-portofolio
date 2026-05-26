@@ -1,40 +1,125 @@
-// fungsi scroll ke atas
+// =============================================
+// SCROLL TO TOP
+// =============================================
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-// tampilkan / sembunyikan tombol saat scroll
 window.addEventListener("scroll", function () {
     const scrollBtn = document.getElementById("scrollToTopButton");
-    if (window.scrollY > 20) { // muncul kalau scroll lebih dari 200px
-        scrollBtn.style.display = "block";
+    if (window.scrollY > 200) {
+        scrollBtn.style.display = "flex";
     } else {
         scrollBtn.style.display = "none";
     }
 });
 
-// inisialisasi AOS
+// =============================================
+// AOS INIT
+// =============================================
 AOS.init({ duration: 1000, once: false });
 
+// =============================================
+// SMOOTH SCROLL (anchor links)
+// =============================================
 document.querySelectorAll('a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        if (this.getAttribute('href').startsWith('#')) {
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#') && href.length > 1) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            const navbarHeight = document.querySelector('.navbar').offsetHeight; // tinggi navbar fixed
-            const offsetTop = target.offsetTop - navbarHeight;
-
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
+            const target = document.querySelector(href);
+            if (!target) return;
+            const navbar = document.querySelector('header');
+            const navbarHeight = navbar ? navbar.offsetHeight + 20 : 80;
+            const offsetTop = target.getBoundingClientRect().top + window.scrollY - navbarHeight;
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+            // tutup mobile menu jika terbuka
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
         }
     });
 });
 
-// cegah agar tidak bisa download gambar, copy, drag and drop, inspect element, view source code, dan mematikan javascript web tidak bisa
+// =============================================
+// MOBILE NAVBAR TOGGLE
+// =============================================
+document.addEventListener("DOMContentLoaded", function () {
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (navToggle && mobileMenu) {
+        navToggle.addEventListener('click', function () {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+});
+
+// =============================================
+// ABOUT TABS
+// =============================================
+function switchTab(tab) {
+    const panes = document.querySelectorAll('.tab-pane');
+    panes.forEach(p => p.classList.add('hidden'));
+
+    const btns = document.querySelectorAll('.tab-btn');
+    btns.forEach(b => {
+        b.classList.remove('tab-active');
+        b.classList.add('text-gray-400');
+    });
+
+    const activePane = document.getElementById('pane-' + tab);
+    const activeBtn = document.getElementById('tab-' + tab);
+
+    if (activePane) activePane.classList.remove('hidden');
+    if (activeBtn) {
+        activeBtn.classList.add('tab-active');
+        activeBtn.classList.remove('text-gray-400');
+    }
+}
+
+// =============================================
+// MODAL HANDLERS
+// =============================================
+function openModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+}
+
+function closeModalOutside(event, id) {
+    // tutup hanya jika klik langsung di overlay (bukan di dalam modal-box)
+    if (event.target === event.currentTarget) {
+        closeModal(id);
+    }
+}
+
+// Tutup modal dengan tombol Escape
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay:not(.hidden)').forEach(modal => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        });
+    }
+});
+
+// =============================================
+// SECURITY: cegah inspect, copy, drag, dll
+// =============================================
 document.addEventListener('keydown', event => {
-    const key = event.key.toLowerCase(); // ubah ke huruf kecil
+    const key = event.key.toLowerCase();
     if (event.key === 'F12' ||
         (event.ctrlKey && event.shiftKey && ['i', 'j', 'c'].includes(key)) ||
         (event.ctrlKey && key === 'u')) {
@@ -46,19 +131,19 @@ document.addEventListener('copy', event => event.preventDefault());
 document.addEventListener('cut', event => event.preventDefault());
 document.addEventListener('paste', event => event.preventDefault());
 document.addEventListener('selectstart', event => event.preventDefault());
-// cegah klik kanan
 document.addEventListener('contextmenu', event => event.preventDefault());
 
-// efek ketik untuk nama
+// =============================================
+// TYPED.JS — nama & keahlian
+// =============================================
 new Typed("#typed-name", {
-    strings: ["Fajar Aji Kusuma"], // isi nama
+    strings: ["Fajar Aji Kusuma"],
     typeSpeed: 100,
     backSpeed: 50,
     showCursor: false,
     loop: false,
 });
 
-// efek ketik untuk keahlian
 new Typed("#typed-skills", {
     strings: [
         "IT Support",
@@ -72,28 +157,33 @@ new Typed("#typed-skills", {
     loop: true,
 });
 
-// memastikan animasi berlanjut otomatis setelah hover dilepas
+// =============================================
+// CERTIFICATE SLIDER — pause on hover
+// =============================================
 const slider = document.querySelector('.certificates-slider');
 const container = document.querySelector('.certificates-container');
 
-container.addEventListener('mouseenter', () => {
-    slider.style.animationPlayState = 'paused';
-});
-container.addEventListener('mouseleave', () => {
-    slider.style.animationPlayState = 'running';
-});
+if (container && slider) {
+    container.addEventListener('mouseenter', () => {
+        slider.style.animationPlayState = 'paused';
+    });
+    container.addEventListener('mouseleave', () => {
+        slider.style.animationPlayState = 'running';
+    });
+}
 
-// ==== JS untuk menggandakan elemen agar animasi tidak jedut ====
+// Gandakan elemen slider agar animasi looping mulus
 document.addEventListener("DOMContentLoaded", function () {
     const slider = document.getElementById("certificatesSlider");
-    const clone = slider.innerHTML;
-    slider.innerHTML += clone; // Gandakan isi untuk looping mulus
+    if (slider) {
+        const clone = slider.innerHTML;
+        slider.innerHTML += clone;
 
-    // Tambahan: reset animasi setiap 30s agar tetap sinkron
-    setInterval(() => {
-        slider.style.animation = "none";
-        void slider.offsetWidth; // trigger reflow
-        slider.style.animation = "";
-        slider.style.animation = "scroll 30s linear infinite";
-    }, 30000);
+        // Reset animasi setiap 30s agar tetap sinkron
+        setInterval(() => {
+            slider.style.animation = "none";
+            void slider.offsetWidth; // trigger reflow
+            slider.style.animation = "scroll 30s linear infinite";
+        }, 30000);
+    }
 });

@@ -250,7 +250,7 @@ new Typed("#typed-name", {
     strings: ["Fajar Aji Kusuma"],
     typeSpeed: 100,
     backSpeed: 50,
-    showCursor: false,
+    showCursor: true,
     loop: false,
 });
 

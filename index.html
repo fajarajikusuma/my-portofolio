@@ -68,60 +68,85 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <title>Fajar Aji Kusuma &mdash; Portofolio Website</title>
     <link rel="stylesheet" href="assets/style.css" />
+    <!-- Anti-flash: terapkan tema sebelum render -->
+    <script>
+      (function () {
+        var saved = localStorage.getItem("theme");
+        var preferLight = window.matchMedia(
+          "(prefers-color-scheme: light)",
+        ).matches;
+        var theme = saved || (preferLight ? "light" : "dark");
+        if (theme === "light")
+          document.documentElement.setAttribute("data-theme", "light");
+      })();
+    </script>
   </head>
 
   <body class="excelent font-poppins">
+    <!-- Light mode decorative orbs & pattern -->
+    <div class="light-orb-2" aria-hidden="true"></div>
+    <div class="light-orb-3" aria-hidden="true"></div>
+    <div class="light-pattern" aria-hidden="true"></div>
     <!-- ===== HEADER / NAVBAR ===== -->
-    <header class="fixed top-0 left-0 right-0 z-50 px-4">
-      <div class="max-w-5xl mx-auto" data-aos="fade-down">
+    <header class="fixed top-0 left-0 right-0 z-50">
+      <div class="max-w-6xl mx-auto px-5" data-aos="fade-down">
         <nav
-          class="navbar-glass mt-5 rounded-full px-6 py-3 flex items-center justify-between relative"
+          class="navbar-glass mt-4 px-5 py-3 flex items-center justify-between"
         >
-          <!-- Logo mobile (kiri) -->
-          <a href="#" class="lg:hidden flex-shrink-0">
+          <!-- Logo + nama (selalu tampil di kiri) -->
+          <a
+            href="#"
+            class="flex items-center gap-3 flex-shrink-0 no-underline"
+          >
             <img
               src="assets/img/logo.png"
               alt="Logo"
-              class="w-12 h-12 rounded-full"
+              class="w-10 h-10 rounded-full"
             />
+            <div class="leading-tight">
+              <p class="font-bold text-sm navbar-brand-name">
+                Fajar Aji Kusuma
+              </p>
+              <p class="text-xs navbar-brand-sub">Portofolio</p>
+            </div>
           </a>
 
-          <!-- Hamburger button (mobile) -->
-          <button
-            id="navToggle"
-            class="lg:hidden text-white focus:outline-none ml-auto"
-            aria-label="Toggle navigation"
-          >
-            <i class="fas fa-bars text-xl"></i>
-          </button>
-
-          <!-- Desktop nav -->
-          <div class="hidden lg:flex items-center justify-between w-full">
-            <!-- Kiri -->
-            <div class="flex gap-6">
-              <a href="#about" class="nav-link-item">About</a>
-              <a href="#services" class="nav-link-item">Services</a>
-            </div>
-            <!-- Logo tengah -->
-            <a href="#" class="absolute left-1/2 -translate-x-1/2">
-              <img
-                src="assets/img/logo.png"
-                alt="Logo"
-                class="w-12 h-12 rounded-full"
-              />
-            </a>
-            <!-- Kanan -->
-            <div class="flex gap-6">
-              <a href="#projects" class="nav-link-item">Project</a>
-              <a href="#contact" class="nav-link-item">Contact Me</a>
-            </div>
+          <!-- Kanan: menu + theme toggle + hamburger (mobile) -->
+          <div class="flex items-center gap-1">
+            <a href="#about" class="nav-link-item hidden lg:inline-flex"
+              >About</a
+            >
+            <a href="#services" class="nav-link-item hidden lg:inline-flex"
+              >Services</a
+            >
+            <a href="#projects" class="nav-link-item hidden lg:inline-flex"
+              >Project</a
+            >
+            <a href="#contact" class="nav-link-item hidden lg:inline-flex"
+              >Contact Me</a
+            >
+            <div
+              class="hidden lg:block w-px h-5 mx-1 opacity-20"
+              style="background: var(--text-primary)"
+            ></div>
+            <button class="theme-toggle-btn" aria-label="Toggle theme">
+              <i class="fas fa-sun"></i>
+            </button>
+            <button
+              id="navToggle"
+              class="lg:hidden navbar-hamburger focus:outline-none"
+              aria-label="Toggle navigation"
+            >
+              <i class="fas fa-bars text-lg"></i>
+              <i class="fas fa-times text-lg"></i>
+            </button>
           </div>
         </nav>
 
-        <!-- Mobile menu -->
+        <!-- Mobile menu dropdown -->
         <div
           id="mobileMenu"
-          class="hidden lg:hidden navbar-glass mt-2 rounded-2xl px-6 py-4 flex flex-col items-center gap-3"
+          class="hidden lg:hidden navbar-glass mt-2 rounded-2xl px-5 py-4 flex flex-col gap-1"
         >
           <a href="#about" class="nav-link-item">About</a>
           <a href="#services" class="nav-link-item">Services</a>
@@ -138,9 +163,12 @@
           class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-24"
         >
           <h1 class="text-4xl md:text-5xl font-semibold mb-3">
-            I'm <span class="text-purple-400 font-bold" id="typed-name"></span>
+            I'm <span class="font-bold section-accent" id="typed-name"></span>
           </h1>
-          <p class="text-lg md:text-xl text-gray-300 min-h-[2rem]">
+          <p
+            class="text-lg md:text-xl min-h-[2rem]"
+            style="color: var(--text-muted)"
+          >
             <span id="typed-skills"></span>
           </p>
           <div class="flex flex-wrap justify-center gap-4 mt-8">
@@ -168,14 +196,34 @@
           </div>
         </div>
       </section>
+      <!-- Divider: Hero → About -->
+      <div class="section-divider" aria-hidden="true">
+        <svg
+          viewBox="0 0 1440 80"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <path
+            class="wave-layer-2"
+            style="fill: var(--glass-bg)"
+            d="M0,80 L0,45 Q120,5 240,38 Q360,70 480,28 Q600,0 720,25 Q840,52 960,18 Q1080,0 1200,32 Q1320,62 1440,42 L1440,80 Z"
+          />
+          <path
+            class="wave-layer-1"
+            style="fill: var(--glass-bg)"
+            d="M0,80 L0,58 Q180,15 360,48 Q540,78 720,38 Q900,5 1080,42 Q1260,75 1440,52 L1440,80 Z"
+            opacity="0.7"
+          />
+        </svg>
+      </div>
 
       <!-- ===== ABOUT SECTION ===== -->
-      <section id="about" class="text-white" data-aos="fade-up">
+      <section id="about" data-aos="fade-up">
         <div class="glass-section py-16">
           <div class="max-w-5xl mx-auto px-4">
             <!-- Subtitle -->
             <p
-              class="text-center text-purple-400 text-sm font-medium tracking-widest uppercase mb-2"
+              class="text-center text-sm font-medium tracking-widest uppercase mb-2 section-accent"
             >
               Discover my story and what drives me.
             </p>
@@ -199,7 +247,7 @@
                 <button
                   id="tab-education"
                   onclick="switchTab('education')"
-                  class="tab-btn px-6 py-2 rounded-full text-sm font-medium transition-all text-gray-400 hover:text-white"
+                  class="tab-btn px-6 py-2 rounded-full text-sm font-medium transition-all section-muted"
                 >
                   Education
                 </button>
@@ -221,7 +269,10 @@
                   <h4 class="text-xl font-semibold mb-3">
                     Hi, I'm Fajar Aji Kusuma,
                   </h4>
-                  <p class="text-gray-300 leading-relaxed">
+                  <p
+                    class="leading-relaxed"
+                    style="color: var(--text-secondary)"
+                  >
                     I am an IT Support professional with expertise in managing
                     networks, hardware, and software, as well as providing
                     technical solutions to ensure optimal system performance.
@@ -278,7 +329,7 @@
                 Certificates
               </h2>
               <p
-                class="text-center text-purple-400 text-sm mb-6"
+                class="text-center text-sm mb-6 section-accent"
                 data-aos="fade-up"
               >
                 Here are some of my professional certificates.
@@ -346,12 +397,32 @@
           </div>
         </div>
       </section>
+      <!-- Divider: About → Services -->
+      <div class="section-divider" aria-hidden="true">
+        <svg
+          viewBox="0 0 1440 80"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <path
+            class="wave-layer-2"
+            style="fill: var(--glass-bg)"
+            d="M0,0 L0,35 Q180,75 360,42 Q540,12 720,48 Q900,80 1080,38 Q1260,5 1440,35 L1440,0 Z"
+          />
+          <path
+            class="wave-layer-1"
+            style="fill: var(--glass-bg)"
+            d="M0,0 L0,25 Q360,68 720,28 Q1080,0 1440,25 L1440,0 Z"
+            opacity="0.6"
+          />
+        </svg>
+      </div>
 
       <!-- ===== SERVICES SECTION ===== -->
-      <section id="services" class="py-20 text-white" data-aos="fade-up">
+      <section id="services" class="py-20" data-aos="fade-up">
         <div class="max-w-5xl mx-auto px-4">
           <p
-            class="text-center text-purple-400 text-sm font-medium tracking-widest uppercase mb-2"
+            class="text-center text-sm font-medium tracking-widest uppercase mb-2 section-accent"
           >
             What I Do
           </p>
@@ -368,7 +439,7 @@
                 <i class="fas fa-user-tie"></i>
               </div>
               <h5 class="text-lg font-bold mb-2">Consulting</h5>
-              <p class="text-gray-400 text-sm leading-relaxed">
+              <p class="text-sm leading-relaxed section-muted">
                 Providing consultations for the right technology solutions to
                 suit your business needs.
               </p>
@@ -380,7 +451,7 @@
                 <i class="fas fa-code"></i>
               </div>
               <h5 class="text-lg font-bold mb-2">Web Development</h5>
-              <p class="text-gray-400 text-sm leading-relaxed">
+              <p class="text-sm leading-relaxed section-muted">
                 Build a responsive and functional website with an attractive and
                 easy-to-use appearance.
               </p>
@@ -392,7 +463,7 @@
                 <i class="fas fa-network-wired"></i>
               </div>
               <h5 class="text-lg font-bold mb-2">Network Engineering</h5>
-              <p class="text-gray-400 text-sm leading-relaxed">
+              <p class="text-sm leading-relaxed section-muted">
                 Design and manage network infrastructure that is reliable and
                 secure to use.
               </p>
@@ -401,18 +472,34 @@
           </div>
         </div>
       </section>
+      <!-- Divider: Services → Projects -->
+      <div class="section-divider" aria-hidden="true">
+        <svg
+          viewBox="0 0 1440 80"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <path
+            class="wave-layer-2"
+            style="fill: var(--section-projects-bg)"
+            d="M0,80 L0,50 L180,15 L360,48 L520,10 L680,44 L840,8 L1000,42 L1160,14 L1320,46 L1440,22 L1440,80 Z"
+          />
+          <path
+            class="wave-layer-1"
+            style="fill: var(--section-projects-bg)"
+            d="M0,80 L0,60 Q240,22 480,56 Q720,85 960,42 Q1200,8 1440,46 L1440,80 Z"
+            opacity="0.75"
+          />
+        </svg>
+      </div>
 
       <!-- ===== PROJECTS SECTION ===== -->
-      <section
-        id="projects"
-        class="py-20 text-white bg-dark-deep"
-        data-aos="fade-up"
-      >
+      <section id="projects" class="py-20 section-projects" data-aos="fade-up">
         <div class="max-w-5xl mx-auto px-4">
           <div class="flex justify-between items-end mb-10">
             <div>
               <p
-                class="text-purple-400 text-sm font-medium tracking-widest uppercase mb-1"
+                class="text-sm font-medium tracking-widest uppercase mb-1 section-accent"
               >
                 Let's have a look at my portfolio
               </p>
@@ -537,21 +624,41 @@
           </div>
         </div>
       </section>
+      <!-- Divider: Projects → Contact -->
+      <div class="section-divider" aria-hidden="true">
+        <svg
+          viewBox="0 0 1440 80"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <path
+            class="wave-layer-2"
+            style="fill: var(--section-projects-bg)"
+            d="M0,0 L0,30 Q360,72 720,34 Q1080,2 1440,32 L1440,0 Z"
+          />
+          <path
+            class="wave-layer-1"
+            style="fill: var(--section-projects-bg)"
+            d="M0,0 L0,18 Q180,55 360,25 Q540,2 720,40 Q900,75 1080,32 Q1260,2 1440,22 L1440,0 Z"
+            opacity="0.6"
+          />
+        </svg>
+      </div>
 
       <!-- ===== CONTACT SECTION ===== -->
       <section
         id="contact"
-        class="py-20 flex justify-center items-center text-white min-h-[60vh]"
+        class="py-20 flex justify-center items-center min-h-[60vh]"
         data-aos="fade-up"
       >
         <div class="max-w-5xl mx-auto px-4 text-center">
           <p
-            class="text-purple-400 text-sm font-medium tracking-widest uppercase mb-2"
+            class="text-sm font-medium tracking-widest uppercase mb-2 section-accent"
           >
             Let's Work together
           </p>
           <h2 class="text-3xl md:text-4xl font-bold mb-3">Contact Me</h2>
-          <p class="text-gray-400 mb-8 max-w-md mx-auto">
+          <p class="mb-8 max-w-md mx-auto" style="color: var(--text-muted)">
             If you are interested in collaborating or have a project idea in
             mind, feel free to reach out
           </p>
@@ -583,7 +690,7 @@
     </main>
 
     <!-- ===== FOOTER ===== -->
-    <footer class="glass-section py-5 text-center text-gray-400 text-sm">
+    <footer class="glass-section py-5 text-center text-sm">
       <p>&copy; 2025 - Present, Made with ❤️ by Fajar Aji Kusuma, S.Kom.</p>
     </footer>
 

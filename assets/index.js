@@ -1,6 +1,58 @@
 // =============================================
-// SCROLL TO TOP
+// THEME TOGGLE (dark / light)
 // =============================================
+(function () {
+    const html = document.documentElement;
+
+    // Ikon untuk setiap tema
+    const ICONS = {
+        dark: 'fas fa-sun',    // tampilkan matahari saat dark (klik → light)
+        light: 'fas fa-moon',   // tampilkan bulan saat light (klik → dark)
+    };
+
+    // Ambil preferensi tersimpan, atau ikuti sistem
+    function getInitialTheme() {
+        const saved = localStorage.getItem('theme');
+        if (saved) return saved;
+        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function applyTheme(theme) {
+        if (theme === 'light') {
+            html.setAttribute('data-theme', 'light');
+        } else {
+            html.removeAttribute('data-theme');
+        }
+        // Update semua tombol toggle
+        document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+            const icon = btn.querySelector('i');
+            if (icon) icon.className = ICONS[theme];
+        });
+        localStorage.setItem('theme', theme);
+    }
+
+    function toggleTheme() {
+        const current = html.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        applyTheme(current === 'dark' ? 'light' : 'dark');
+    }
+
+    // Terapkan tema awal sebelum render (cegah flash)
+    applyTheme(getInitialTheme());
+
+    // Pasang event listener setelah DOM siap
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+            btn.addEventListener('click', toggleTheme);
+        });
+
+        // Ikuti perubahan preferensi sistem secara real-time
+        window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+            if (!localStorage.getItem('theme')) {
+                applyTheme(e.matches ? 'light' : 'dark');
+            }
+        });
+    });
+})();
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -34,9 +86,12 @@ document.querySelectorAll('a').forEach(anchor => {
             const offsetTop = target.getBoundingClientRect().top + window.scrollY - navbarHeight;
             window.scrollTo({ top: offsetTop, behavior: 'smooth' });
             // tutup mobile menu jika terbuka
+            const navToggle = document.getElementById('navToggle');
             const mobileMenu = document.getElementById('mobileMenu');
             if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('menu-open');
                 mobileMenu.classList.add('hidden');
+                if (navToggle) navToggle.classList.remove('is-open');
             }
         }
     });
@@ -51,9 +106,64 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (navToggle && mobileMenu) {
         navToggle.addEventListener('click', function () {
-            mobileMenu.classList.toggle('hidden');
+            const isOpen = navToggle.classList.contains('is-open');
+            if (isOpen) {
+                // Close
+                navToggle.classList.remove('is-open');
+                mobileMenu.classList.remove('menu-open');
+                mobileMenu.classList.add('hidden');
+            } else {
+                // Open
+                navToggle.classList.add('is-open');
+                mobileMenu.classList.remove('hidden');
+                // Force reflow then add animation class
+                void mobileMenu.offsetWidth;
+                mobileMenu.classList.add('menu-open');
+            }
         });
     }
+});
+
+// =============================================
+// ACTIVE NAV LINK — highlight on scroll
+// =============================================
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link-item');
+    const navbar = document.querySelector('.navbar-glass');
+
+    function updateActiveLink() {
+        const scrollY = window.scrollY;
+
+        // Navbar scrolled state
+        if (navbar) {
+            if (scrollY > 40) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+
+        // Active section detection
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+            if (scrollY >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href');
+            if (href === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+    updateActiveLink();
 });
 
 // =============================================

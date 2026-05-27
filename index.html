@@ -114,7 +114,7 @@
           <span id="typed-skills"></span>
         </p>
         <div class="flex flex-wrap justify-center gap-4 mt-8">
-          <a href="assets/document/CV_Fajar_Aji_Kusuma.pdf" class="btn-primary-pill">Download CV</a>
+          <button onclick="openModal('cvModal')" class="btn-primary-pill">Download CV</button>
           <a href="#projects" class="btn-secondary-pill">See Projects</a>
         </div>
         <div class="mt-6 flex justify-center gap-3">
@@ -452,6 +452,18 @@
     </div>
     <div class="p-0 w-full overflow-hidden aspect-[4/3] md:aspect-[16/10] lg:aspect-[16/9.5]">
       <iframe src="assets/pdfjs/web/viewer.html?file=/assets/document/CCNAV7_Switching.pdf&#35;zoom=page-fit" style="width:100%; height:100%; border:none; display:block;"></iframe>
+    </div>
+  </div>
+</div>
+
+<div id="cvModal" class="modal-overlay hidden" onclick="closeModalOutside(event,'cvModal')">
+  <div class="modal-box max-w-5xl w-full mx-auto my-4 max-h-[95vh] flex flex-col">
+    <div class="modal-header flex-shrink-0">
+      <h5 class="font-semibold text-white">CV Viewer - Curriculum Vitae Fajar Aji Kusuma</h5>
+      <button onclick="closeModal('cvModal')" class="modal-close-btn"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="p-0 w-full overflow-hidden aspect-[4/3] md:aspect-[16/10] lg:aspect-[16/9.5]">
+      <iframe src="assets/pdfjs/web/viewer.html?file=/assets/document/CV_Fajar_Aji_Kusuma.pdf&#35;zoom=page-fit" style="width:100%; height:100%; border:none; display:block;"></iframe>
     </div>
   </div>
 </div>

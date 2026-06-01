@@ -396,84 +396,73 @@
 </div>
 
 <!-- ===== MODALS ===== -->
-<!-- ==================== MODAL SERTIFIKAT 1 ==================== -->
 <div id="certificateModal1" class="modal-overlay hidden" onclick="closeModalOutside(event,'certificateModal1')">
-  <!-- h-auto memaksa modal menciut pas mengikuti tinggi sertifikat -->
-  <div class="modal-box w-[95%] sm:w-full max-w-5xl mx-auto my-auto h-auto flex flex-col overflow-hidden">
+  <div class="modal-box w-[95%] sm:w-full max-w-5xl mx-auto my-auto h-auto sm:h-[85vh] max-h-[90vh] flex flex-col overflow-hidden">
     <div class="modal-header flex-shrink-0">
       <h5 class="font-semibold text-white text-sm sm:text-base pr-4">Certificate Viewer - Frontend Developer</h5>
       <button onclick="closeModal('certificateModal1')" class="modal-close-btn"><i class="fas fa-times"></i></button>
     </div>
-    <!-- Trik Aspek Rasio: Di HP pakai 4/3 agar pas, di laptop otomatis melebar ke rasio landscape sertifikat asli -->
-    <div class="p-0 w-full overflow-hidden aspect-[4/3] sm:aspect-[14/9] md:aspect-[16/10] lg:aspect-[16/9.5] bg-[#323639]">
-      <!-- Menggunakan zoom=page-width agar sertifikat otomatis full width memenuhi lebar layar -->
+    <div class="p-0 w-full overflow-hidden aspect-[4/3] sm:aspect-auto flex-grow sm:h-full bg-[#323639]">
       <iframe src="assets/pdfjs/web/viewer.html?file=/assets/document/sertifikat_dicoding.pdf&#35;zoom=page-width" class="w-full h-full block" style="border:none;"></iframe>
     </div>
   </div>
 </div>
 
-<!-- ==================== MODAL SERTIFIKAT 2 ==================== -->
 <div id="certificateModal2" class="modal-overlay hidden" onclick="closeModalOutside(event,'certificateModal2')">
-  <div class="modal-box w-[95%] sm:w-full max-w-5xl mx-auto my-auto h-auto flex flex-col overflow-hidden">
+  <div class="modal-box w-[95%] sm:w-full max-w-5xl mx-auto my-auto h-auto sm:h-[85vh] max-h-[90vh] flex flex-col overflow-hidden">
     <div class="modal-header flex-shrink-0">
       <h5 class="font-semibold text-white text-sm sm:text-base pr-4">Certificate Viewer - Computer UPT Assistant</h5>
       <button onclick="closeModal('certificateModal2')" class="modal-close-btn"><i class="fas fa-times"></i></button>
     </div>
-    <div class="p-0 w-full overflow-hidden aspect-[4/3] sm:aspect-[14/9] md:aspect-[16/10] lg:aspect-[16/9.5] bg-[#323639]">
+    <div class="p-0 w-full overflow-hidden aspect-[4/3] sm:aspect-auto flex-grow sm:h-full bg-[#323639]">
       <iframe src="assets/pdfjs/web/viewer.html?file=/assets/document/sertifikat_asisten.pdf&#35;zoom=page-width" class="w-full h-full block" style="border:none;"></iframe>
     </div>
   </div>
 </div>
 
-<!-- ==================== MODAL SERTIFIKAT 3 ==================== -->
 <div id="certificateModal3" class="modal-overlay hidden" onclick="closeModalOutside(event,'certificateModal3')">
-  <div class="modal-box w-[95%] sm:w-full max-w-5xl mx-auto my-auto h-auto flex flex-col overflow-hidden">
+  <div class="modal-box w-[95%] sm:w-full max-w-5xl mx-auto my-auto h-auto sm:h-[85vh] max-h-[90vh] flex flex-col overflow-hidden">
     <div class="modal-header flex-shrink-0">
       <h5 class="font-semibold text-white text-sm sm:text-base pr-4">Certificate Viewer - Computer UPT Coordinator</h5>
       <button onclick="closeModal('certificateModal3')" class="modal-close-btn"><i class="fas fa-times"></i></button>
     </div>
-    <div class="p-0 w-full overflow-hidden aspect-[4/3] sm:aspect-[14/9] md:aspect-[16/10] lg:aspect-[16/9.5] bg-[#323639]">
+    <div class="p-0 w-full overflow-hidden aspect-[4/3] sm:aspect-auto flex-grow sm:h-full bg-[#323639]">
       <iframe src="assets/pdfjs/web/viewer.html?file=/assets/document/sertifikat_koor.pdf&#35;zoom=page-width" class="w-full h-full block" style="border:none;"></iframe>
     </div>
   </div>
 </div>
 
-<!-- ==================== MODAL SERTIFIKAT 4 ==================== -->
 <div id="certificateModal4" class="modal-overlay hidden" onclick="closeModalOutside(event,'certificateModal4')">
-  <div class="modal-box w-[95%] sm:w-full max-w-5xl mx-auto my-auto h-auto flex flex-col overflow-hidden">
+  <div class="modal-box w-[95%] sm:w-full max-w-5xl mx-auto my-auto h-auto sm:h-[85vh] max-h-[90vh] flex flex-col overflow-hidden">
     <div class="modal-header flex-shrink-0">
       <h5 class="font-semibold text-white text-sm sm:text-base pr-4">Certificate Viewer - Cisco V7 Introduction to Network</h5>
       <button onclick="closeModal('certificateModal4')" class="modal-close-btn"><i class="fas fa-times"></i></button>
     </div>
-    <div class="p-0 w-full overflow-hidden aspect-[4/3] sm:aspect-[14/9] md:aspect-[16/10] lg:aspect-[16/9.5] bg-[#323639]">
+    <div class="p-0 w-full overflow-hidden aspect-[4/3] sm:aspect-auto flex-grow sm:h-full bg-[#323639]">
       <iframe src="assets/pdfjs/web/viewer.html?file=/assets/document/CCNAV7_Introduction.pdf&#35;zoom=page-width" class="w-full h-full block" style="border:none;"></iframe>
     </div>
   </div>
 </div>
 
-<!-- ==================== MODAL SERTIFIKAT 5 ==================== -->
 <div id="certificateModal5" class="modal-overlay hidden" onclick="closeModalOutside(event,'certificateModal5')">
-  <div class="modal-box w-[95%] sm:w-full max-w-5xl mx-auto my-auto h-auto flex flex-col overflow-hidden">
+  <div class="modal-box w-[95%] sm:w-full max-w-5xl mx-auto my-auto h-auto sm:h-[85vh] max-h-[90vh] flex flex-col overflow-hidden">
     <div class="modal-header flex-shrink-0">
       <h5 class="font-semibold text-white text-sm sm:text-base pr-4">Certificate Viewer - Cisco V7 Switching, Routing, and Wireless Essentials</h5>
       <button onclick="closeModal('certificateModal5')" class="modal-close-btn"><i class="fas fa-times"></i></button>
     </div>
-    <div class="p-0 w-full overflow-hidden aspect-[4/3] sm:aspect-[14/9] md:aspect-[16/10] lg:aspect-[16/9.5] bg-[#323639]">
+    <div class="p-0 w-full overflow-hidden aspect-[4/3] sm:aspect-auto flex-grow sm:h-full bg-[#323639]">
       <iframe src="assets/pdfjs/web/viewer.html?file=/assets/document/CCNAV7_Switching.pdf&#35;zoom=page-width" class="w-full h-full block" style="border:none;"></iframe>
     </div>
   </div>
 </div>
 
-<!-- ==================== MODAL CV VIEWER ==================== -->
 <div id="cvModal" class="modal-overlay hidden" onclick="closeModalOutside(event,'cvModal')">
-  <!-- Khusus CV dikunci max-h-[85vh] karena dia portrait banyak halaman agar bisa di-scroll ke bawah -->
-  <div class="modal-box w-[95%] sm:w-full max-w-4xl mx-auto my-auto max-h-[85vh] flex flex-col overflow-hidden">
+  <div class="modal-box w-[95%] sm:w-full max-w-4xl mx-auto my-auto h-auto sm:h-[85vh] max-h-[90vh] flex flex-col overflow-hidden">
     <div class="modal-header flex-shrink-0">
-      <h5 class="font-semibold text-white text-sm sm:text-base pr-4">CV Viewer - Curriculum Vitae Fajar Aji Kusuma</h5>
+      <h5 class="font-semibold text-white text-sm sm:text-base pr-4">CV Viewer - Curriculum Vitae</h5>
       <button onclick="closeModal('cvModal')" class="modal-close-btn"><i class="fas fa-times"></i></button>
     </div>
-    <!-- Area isi CV menggunakan tinggi responsif vh -->
-    <div class="p-0 w-full flex-grow h-[60vh] sm:h-[70vh] overflow-hidden bg-[#323639]">
+    <div class="p-0 w-full flex-grow h-[60vh] sm:h-full overflow-hidden bg-[#323639]">
       <iframe src="assets/pdfjs/web/viewer.html?file=/assets/document/CV_Fajar_Aji_Kusuma.pdf&#35;zoom=page-width" class="w-full h-full block" style="border:none;"></iframe>
     </div>
   </div>

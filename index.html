@@ -221,6 +221,9 @@
               <div class="certificate-card" onclick="openModal('certificateModal5')">
                 <img src="assets/img/CCNAV7_Switching-1.jpg" alt="CCNA Switching" />
               </div>
+              <div class="certificate-card" onclick="openModal('certificateModal6')">
+                <img src="assets/img/sertifikatCodingCamp.jpg" alt="Sertifikat Coding Camp" />
+              </div>
             </div>
           </div>
         </div>
@@ -452,6 +455,18 @@
     </div>
     <div class="p-0 w-full overflow-hidden aspect-[4/3] sm:aspect-auto flex-grow sm:h-full bg-[#323639]">
       <iframe src="assets/pdfjs/web/viewer.html?file=/assets/document/CCNAV7_Switching.pdf&#35;zoom=page-width" class="w-full h-full block" style="border:none;"></iframe>
+    </div>
+  </div>
+</div>
+
+<div id="certificateModal6" class="modal-overlay hidden" onclick="closeModalOutside(event,'certificateModal6')">
+  <div class="modal-box w-[95%] sm:w-full max-w-5xl mx-auto my-auto h-auto sm:h-[85vh] max-h-[90vh] flex flex-col overflow-hidden">
+    <div class="modal-header flex-shrink-0">
+      <h5 class="font-semibold text-white text-sm sm:text-base pr-4">Certificate Viewer - Coding Camp Certificate</h5>
+      <button onclick="closeModal('certificateModal6')" class="modal-close-btn"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="p-0 w-full overflow-hidden aspect-[4/3] sm:aspect-auto flex-grow sm:h-full bg-[#323639]">
+      <iframe src="assets/pdfjs/web/viewer.html?file=/assets/document/sertifikatCodingCamp.pdf&#35;zoom=page-width" class="w-full h-full block" style="border:none;"></iframe>
     </div>
   </div>
 </div>
